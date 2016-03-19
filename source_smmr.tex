@@ -1,0 +1,816 @@
+\begin{document}
+\frenchspacing
+
+\begin{frontmatter}
+
+
+
+\title{A time-varying effect model for studying gender differences in health behavior}
+
+%%begin{catchline}
+
+%article-type=articles
+%left-running-head=journal title
+%right-running-head=author name
+\newcommand{\artinfo}{\sffamily\fontsize{7pt}{8pt}\selectfont%
+Statistical Methods in Medical Research\\
+2015, Vol. 00(0) 00-00\\
+\copyright\,The Author(s) 2014\\
+Reprints and permission:\\ 
+sagepub.co.uk/journalsPermissions.nav\\
+DOI: 10.1177/0000000000000000\\
+smm.sagepub.com\\
+\includegraphics[scale=1]{SAGE_Logo.eps}
+}
+%%end{catchline}
+
+\author{Songshan Yang\fnref{fn2}}
+\author{James A. Cranford\fnref{fn3}}
+\author{Runze Li\fnref{fn4}}
+\author{Robert A. Zucker\fnref{fn3}}
+\author{Anne Buu\fnref{fn1}%\cormark{cor1}
+}
+
+%\renewcommand{\baselinestretch}{1.0} \small\normalsize
+\fntext[fn1]{School of Nursing, University of Michigan, Ann Arbor, MI 48109, U.S.A.}
+\fntext[fn2]{Department of Statistics, Pennsylvania State University, University Park, PA 16802, U.S.A.}
+\fntext[fn3]{Department of Psychiatry & Addiction Research Center, University of Michigan, Ann Arbor, MI 48109, U.S.A.}
+\fntext[fn4]{Department of Statistics and The Methodology Center, Pennsylvania State University, University Park, PA 16802, U.S.A.}
+%\renewcommand{\baselinestretch}{2.0} \small\normalsize
+\cortext[cor1]{Address for correspondence: Anne Buu, School of Nursing, University of Michigan, 400 North Ingalls, Ann
+Arbor, MI 48109, USA.}
+\cortextemail[cor1]{E-mail: buu@umich.edu}
+
+\begin{abstract}
+This a\textbf{rtic}le proposes a time-varying effect model that can be used
+to characterize gender-specific trajectories of health behaviors
+and conduct hypothesis testing for gender differences. The
+motivating examples demonstrate that the proposed model is
+applicable to not only multi-wave longitudinal studies but also
+short-term studies that involve intensive data collection. The
+simulation study shows that the accuracy of estimation of
+trajectory functions improves as the sample size and the number of
+time points increase. In terms of the performance of the 
+hypothesis testing, the type I error rates are close to their
+corresponding significance levels under all combinations of sample
+size and number of time points. Furthermore, the power increases
+as the alternative hypothesis deviates more from the null
+hypothesis and the rate of this increasing trend is higher when
+the sample size and the number of time points are larger.
+\end{abstract}
+
+\begin{keyword}
+longitudinal data; time-varying effect; mixed effect; B-spline; substance abuse.
+\end{keyword}
+\end{frontmatter}
+
+\section{Introduction} 
+Historically, in many fields of health
+science such as alcohol and substance abuse research, participants
+were largely male. Thus, our knowledge of the relevant diseases
+has been built upon data from predominantly male samples. However,
+females and males are different not only biologically but also
+psychosocially. The complex interplay between these two types of
+factors at different developmental stages may result in gender
+differences that vary across time \cite{buu14,buu15}. For example,
+females' earlier timing of physical puberty may put them at higher
+risk for alcohol use in early adolescence \cite{wichstrom01}.
+Other biological factors may, however, prevent females from
+drinking alcohol in later developmental stages such as higher
+reactivity to alcohol and greater vulnerability to adverse health
+effects due to alcohol use \cite{nolen04}. In addition,
+psychosocial factors such as greater social sanctions against
+females' alcohol use may contribute to gender differences
+\cite{nolen04}. In fact, the finding of a closing gender gap in
+alcohol use, abuse, and dependence in the United States population
+\cite{keyes08} tends to reflect the diminishing gender-based
+drinking norms in the modern society. By understanding gender
+differences in developmental trajectories of alcohol use or
+drinking patterns, we may be able to tailor prevention and
+intervention efforts to the special timing and risky patterns of
+each gender group and, thus, thwart progression to worse outcomes.
+
+According to our review of the empirical studies published in the
+past two decades, gender has been conventionally treated as a
+time-invariant effect, that is, both the magnitude and direction
+of gender differences remain unchanged over time (e.g.
+\cite{Boden14,smith15}). Yet, a recent study \cite{chen12}
+analyzed 4 waves of data from a nationally representative sample
+of adolescents and found similar developmental trajectories for
+alcohol use, nicotine use and marijuana use by gender: females
+tended to be involved in higher levels of substance use in early
+adolescence, whereas males exhibited greater increases across time
+and higher levels of use in mid-adolescence and early adulthood.
+An important limitation of the methodology used in the study is
+that the developmental trajectories for all the three substances
+were derived by fitting quadratic growth models that pre-specified
+a simple shape for developmental changes, which may contribute to
+the similarity in trajectories across substances. In addition,
+gender differences were tested \emph{implicitly} through the
+interactions between the group indicator and linear/quadratic
+terms. Such simple shapes can hardly characterize the complex
+developmental trajectories of substance use, especially when there
+are many time points spanning a long developmental period.
+
+In recent years, the time-varying effect model (TVEM) has been
+introduced and extended for broader applications in the substance
+abuse field \cite{cai00,dziak14,qu06,tan12,wang09,zhu12}. The TVEM
+\emph{explicitly} characterizes gender differences in
+developmental trajectories of substance use across the critical
+period by modeling gender as a time-varying effect, which can be
+easily understandable to the scientific community as well as the
+general public through graphical presentation. Such trajectories
+are estimated through nonparametric regression functions that do
+not assume fixed shapes like conventional growth curves, and thus
+may reveal different timing of prevention and intervention for
+gender groups. Furthermore, this kind of model can be applied to
+not only multi-wave longitudinal studies, but also short-term
+studies that involve intensive data collection methods such as
+ecological momentary assessment or daily diaries, which are
+becoming more popular for studying patterns of health behaviors
+\cite{liu13,selya13,vasilenko14,yang15}. Although these two types
+of studies are different in terms of the duration between time
+points, the numbers of time points and the richness of data in
+both studies tend to be beyond what traditional parametric methods
+can fully characterize.
+
+This study proposes a time-varying effect model to (1)
+characterize gender-specific trajectories of health behaviors and
+(2) conduct hypothesis testing for gender differences. We
+demonstrate an application of 
+using longitudinal data
+from a well-known prospective study on the development of
+substance use and abuse, the Michigan Longitudinal Study
+(MLS)\cite{zucker96}, that is following high risk youth from
+childhood to adulthood. Another application of the model is
+demonstrated by using daily diary data from the National Survey of
+Midlife Development in the United States (MIDUS) \cite{ryff10}.
+The MIDUS data were also used to design a simulation study
+evaluating the performance of the proposed method in terms of the
+accuracy of estimation of trajectories, type I error rate, and
+statistical power under different conditions.
+
+
+\section{The model}
+
+Let $Y(t_{ij})$ be the $j$-th observed outcome from the $i$-th
+subject at $t_{ij} (i=1,......,N; j=1,......,J_i)$ and $k$ be the
+group (e.g. gender) that Subject $i$ belongs to ($k=1,2$). We
+consider the following nonparametric generalized mixed effect
+model for the measurement:
+
+\begin{equation}\label{Model}
+g[E\{Y(t_{ij})|b_{i}\}]=\mu(t_{ij})+\beta(t_{ij})I_{\{k=1\}}+b_i,
+\end{equation}
+where $g(\cdot)$ is a known link function under the framework of
+generalized linear models \cite{mccullagh89}; $\mu(t_{ij})$ is the
+trajectory of the $k=2$ group; $\beta(t_{ij})$ delineates the
+time-varying difference between the two groups; and $b_i$ is a
+random individual effect modeling within-subject correlation and
+is assumed to follow a normal distribution with mean 0 and
+variance $\sigma^2$. The distribution of $Y(t_{ij})$ is thus
+completely characterized by $\mu(t_{ij})$, $\beta(t_{ij})$ and
+$b_i$. One advantage of this model over fitting a separate
+nonparametric trajectory for each group is that $\beta(t_{ij})$
+can characterize the group difference across time explicitly.
+
+
+The time-varying coefficients in Model (\ref{Model}) can be
+represented using basis expansions. Thus, the nonparametric
+functions $\mu(t_{ij})$, $\beta(t_{ij})$ are treated as linear
+combinations of several known parametric functions. We choose to
+use a spline basis to represent them as piecewise cubic functions.
+On each of several intervals defined by knots, the spline function
+is cubic. At a knot, the spline function is continuous and has
+continuous first and second derivatives, although the third
+derivative may be discontinuous at the knots. This allows any
+smooth shape to be approximated well if enough knots are used.
+Specifically, we use a B-spline basis \cite{deboor78}, which can
+be automatically generated by most commonly used statistical
+software packages such as SAS and R, for a given set of knots. The
+basis functions are always nonnegative, and each is zero over most
+of the interval, so that each knot's basis function is orthogonal
+to the other basis functions except for its closest knot
+neighbors. However, overfitting may still occur with a B-spline
+basis if too many knots are used. For simplicity, in this paper,
+we adopt the approach of \textbf{\cite{shiyko12}} that used a
+small number of equally spaced knots and treated the selection of
+the number of basis functions as a model selection problem.
+
+
+After defining the basis functions using the B-spline formula,
+Equation (\ref{Model}) can be written as a parametric form:
+\begin{equation}\label{B-spline}
+g[E\{Y(t_{ij})|b_{i}\}]=\Sigma_{p=1}^{P}\xi_{p}\phi_{p}(t_{ij})+\Sigma_{q=1}^{Q}\zeta_{q}\psi_{q}(t_{ij})I_{\{k=1\}}+b_i,
+\end{equation}
+where $\phi_{1}(t_{ij}),\ldots,\phi_{P}(t_{ij})$ and
+$\psi_{1}(t_{ij}),\ldots,\psi_{Q}(t_{ij})$ are known functions of
+time defined using the recursive B-spline formulas;
+$\xi_1,\ldots,\xi_P$ and $\zeta_1,\ldots,\zeta_Q$ are the
+corresponding regression coefficients. Equation (\ref{B-spline})
+is thus a generalized linear mixed model with $P+Q+1$ parameters.
+For the binary case, the likelihood function for Subject $i$ is
+$$
+L_{i}=\int\prod_{j=1}^{J_{i}}
+p_{ij}^{Y(t_{ij})}(1-p_{ij})^{(1-Y(t_{ij}))}
+\exp(-b_i^2/2\sigma^2)/\sigma\,d b_i,
+%L_{i}=\int\prod_{j=1}^{J_{i}}P(Y_{ij}=0)^{I_{\{Y_{ij}=0\}}}P(Y_{ij}=1)^{1-I_{\{Y_{ij}=0\}}}dF(b_{i},\sigma^{2}),
+$$
+where $p_{ij}=P(Y(t_{ij})=1|b_i)$.
+%is the indicator function and $F(b_{i},\sigma^{2})$ is
+%the distribution function of $b_{i}$.
+For the continuous case, it is
+$$
+L_{i}=\int\prod_{j=1}^{J_{i}}f(Y(t_{ij}))\exp(-b_i^2/2\sigma^2)/\sigma\,d
+b_i,
+$$
+where $f(y(t_{ij}))$ stands for the density function of
+$Y(t_{ij})$. The likelihood function for the entire sample is thus
+$L=\prod_{i=1}^{N}L_{i}$. We use the R-package lme4 to derive the
+maximum likelihood estimates of the parameters.
+
+In practice, researchers are interested in graphing
+gender-specific trajectories. Based on the fixed effects in
+Equation (\ref{B-spline}), the trajectory for the $k=2$ group is
+$\hat{f}_{2}(t_{ij})=\mu(t_{ij})=\Sigma_{p=1}^{P}\xi_{p}\phi_{p}(t_{ij})$.
+For the $k=1$ group, the trajectory is
+$\hat{f}_{1}(t_{ij})=\mu(t_{ij})+\beta(t_{ij})=\Sigma_{p=1}^{P}\xi_{p}\phi_{p}(t_{ij})+\Sigma_{q=1}^{Q}\zeta_{q}\psi_{q}(t_{ij})$.
+The delta method can be used to estimate the variance of the
+estimated functions of these two groups at any time $t$. In this
+way, we can obtain the pointwise confidence intervals which can be
+plotted along with the estimated trajectories.
+
+Researchers are also interested in testing whether there exists
+any gender difference. We formulate this hypothesis testing
+problem as follows:
+\begin{center}
+$H_{0}: \beta(t)=0$ v.s. $H_{1}: \beta(t)\neq0$
+\end{center}
+Under $H_{0}$, the two groups have the same trajectory (i.e.,
+there is no group difference). Following the method described
+above, we can estimate $\mu(t)$ under $H_{0}$, as well as $\mu(t)$
+and $\beta(t)$ under $H_{1}$. We can further evaluate the
+log-likelihood functions under $H_{0}$ and $H_{1}$ denoted by
+$\ell(H_{0})$ and $\ell(H_{1})$, respectively. The generalized
+likelihood ratio test(GLRT) for the hypothesis can thus be defined
+by $T=2\{\ell(H_{1})-\ell(H_{0})\}$. Following \cite{cai00}, we
+can conduct bootstrap sampling to estimate the p-value for the
+GLRT.
+
+
+\section{The motivating examples}
+
+We use two well-known studies in the field of health behavior
+research to demonstrate that the proposed model can be applied to
+not only multi-wave longitudinal studies, but also short-term
+studies that involve intensive data collection such as daily
+process studies.
+
+
+
+\newpage
+\begin{table}[htbp]
+\footnotesize
+\begin{center}
+\caption{MISE under different sample sizes, numbers of time
+points, proportions of zeros, and gender ratios.}
+%\scalebox{0.88}{%
+\begin{tabular}{c|cc|cc|cc}
+ 
+%\begin{thead}
+&\multicolumn{6}{c}{male:female=1:1}\\ 
+& \multicolumn{2}{c|}{$N=100$}& \multicolumn{2}{c|}{$N=200$}& \multicolumn{2}{c}{$N=400$}\\
+&$J=8$&$J=16$&$J=8$&$J=16$&$J=8$&$J=16$\\
+ Proportion & Mean(SD) & Mean(SD) & Mean(SD) & Mean(SD) &
+Mean(SD) & Mean(SD)\\
+ %\end{thead}
+ 30\%&0.387(0.273) &
+0.179(0.112)&0.171(0.106) &0.086(0.048) &0.082(0.047) &
+0.044(0.023)       \\ 
+50\% & 0.287(0.183)        & 0.148(0.077)         &  0.140(0.080)        &   0.078(0.043)       &   0.074(0.038)       & 0.042(0.023)         \\
+70\% &  0.557(0.444)       &   0.306(0.426)       &  0.294(0.323)        &  0.140(0.135)        &  0.156(0.176)        & 0.071(0.051)    \\
+ &\multicolumn{6}{c}{male:female=3:1}\\ 
+& \multicolumn{2}{c|}{$N=100$}& \multicolumn{2}{c|}{$N=200$}& \multicolumn{2}{c}{$N=400$}\\
+
+&$J=8$&$J=16$&$J=8$&$J=16$&$J=8$&$J=16$\\
+ Proportion & Mean(SD) & Mean(SD) & Mean(SD) & Mean(SD) &
+Mean(SD) & Mean(SD)\\
+ 
+ 30\%&0.417(0.236) &0.260(0.401)&0.231(0.188) &0.104(0.067) &0.099(0.059) &0.050(0.028)       \\
+50\% & 0.319(0.179)        & 0.151(0.081)         &  0.153(0.086)        &   0.078(0.039)       &   0.077(0.039)       & 0.042(0.022)         \\
+70\% &  0.453(0.263)       &   0.266(0.241)       &  0.288(0.269)        &  0.131(0.102)        &  0.126(0.095)        & 0.063(0.041)    \\
+
+\end{tabular}
+%}
+%\footnotesize or source{footnote}
+\end{center}
+\normalsize
+\end{table}
+
+
+
+
+\begin{table}[htbp]
+\begin{center}
+\caption{Type I error rates under different sample sizes and
+numbers of time points.}
+\begin{tabular}{c|cccccc}
+%\begin{thead}  
+ &  \multicolumn{2}{c}{N=100}  & \multicolumn{2}{c}{N=200} & \multicolumn{2}{c}{N=400} \\
+& J=8& J=16&  J=8&J=16 &J=8&J=16\\
+%\end{thead}     
+$\alpha=0.01$&0.011 &0.008 &0.01  &0.006 &0.006&0.016\\
+$\alpha=0.05$&0.053 &0.046 &0.034  &0.059 &0.057&0.048\\
+$\alpha=0.10$&0.114 & 0.088& 0.097 &0.108 &0.107&0.108\\
+$\alpha=0.25$&0.286 & 0.26& 0.261 &0.231 &0.266&0.234\\
+      
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+\newpage
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/national_and_mls.pdf}
+    \caption{Gender-specific trajectories based on the motivating examples.}
+  \end{center}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{images/n=100_j=8.pdf}
+\includegraphics[width=0.45\textwidth]{images/n=100_j=16.pdf}
+\includegraphics[width=0.45\textwidth]{images/n=200_j=8.pdf}
+\includegraphics[width=0.45\textwidth]{images/n=200_j=16.pdf}
+\includegraphics[width=0.45\textwidth]{images/n=400_j=8.pdf}
+\includegraphics[width=0.45\textwidth]{images/n=400_j=16.pdf}
+\caption{Power curves under different sample sizes, numbers of
+time points, and significance levels.}
+\end{figure}
+
+
+
+\subsection{The Michigan Longitudinal Study (MLS)}
+
+The MLS is an ongoing prospective study of people at high risk for
+substance abuse and disorder \cite{zucker96}. It is the
+developmentally earliest study currently extant and is also one of
+the longest running projects in the field of substance abuse. We
+chose to use data from the MLS to demonstrate the application of
+the proposed method, because the study is highly influential and
+the features of the data are typical in the field. Thus, our
+methodological work may have high applicability to the field. More
+importantly, these rich longitudinal data provide a rare
+opportunity for us to examine gender differences in alcohol use
+developmentally. Such investigation could shed some light on
+future prevention and intervention work.
+
+The MLS recruited participant families using fathers' drunk
+driving conviction records and door-to-door community canvassing
+in a four-county area in mid-Michigan. All participants received
+extensive in-home assessments of their substance use and related
+risk factors and consequences at baseline, and thereafter at
+3-year intervals. The children of participant families were
+followed from early childhood to adulthood. During the critical
+developmental period of alcohol use onset and peak use (early
+adolescence to young adulthood), these children were assessed
+annually in order to measure drinking onset and patterns more
+accurately. In this study, we use longitudinal data (ages 12 to
+26) from a sample of 699 children (70.2\% males) for analysis. The
+maximum number of time points available is 15, although some
+participants may skip certain time points.
+
+Our investigation aims to (1) characterize gender-specific alcohol
+use behavior developmentally from early adolescence to young
+adulthood, and (2) test gender differences in developmental
+trajectories. In our analysis, the outcome at each time point is a
+composite measure of alcohol consumption which is the product of
+the number of drinking days in past month and the average number
+of drinks per drinking day. Gender is treated as a time-varying
+effect through $\beta(t)$ in Model (\ref{Model}); the link
+function $g(\cdot)$ is the identity. Using AIC and BIC, we choose
+5 knots to approximate the trajectories. Panels (a) and (b) in
+Figure 1 show the developmental trajectories of females and males,
+respectively. Using the asymptotic normality of the resulting
+estimate, the asymptotic pointwise confidence intervals (CI) of
+the trajectories of group 1 and group 2 (i.e., $\mu(t)+\beta(t)$
+and $\mu(t)$) at time $t_{ij}$ are
+$$
+\hat{\mu}(t_{ij}) + \hat{\beta}(t_{ij})\pm
+z_{\frac{\alpha}{2}}\sqrt{(\Phi(t_{ij}),\Psi(t_{ij}))\Sigma_{\xi,\zeta}(\Phi(t_{ij}),\Psi(t_{ij}))^{T}}$$
+and
+$$
+\hat{\mu}(t_{ij})\pm
+z_{\frac{\alpha}{2}}\sqrt{\Phi(t_{ij})\Sigma_{\xi}\Phi^{T}(t_{ij})},
+$$
+respectively, where $\Sigma_{\xi}$ and $\Sigma_{\xi,\zeta}$ are
+the covariance matrices of the estimates of the covariates; $\Phi$
+and $\Psi$ are the Bspline basis used to fit the functions
+$\mu(t)$ and $\beta(t)$, respectively. The two gender groups do
+not differ until middle adolescence. Although alcohol consumption
+for both groups increases from middle adolescence to young
+adulthood, the rate of change is much higher among males.
+Furthermore, the decreasing trend for both groups after age 24
+probably reflects that people tend to ``mature out" of heavy
+drinking due to family or job responsibilities. Moreover, the
+result of the generalized likelihood ratio test indicates that
+there are significant gender differences with $T=161.29$ and the
+corresponding p-value estimated to be around $0$ by bootstrap
+sampling.
+
+\subsection{The National Survey of Midlife Development in the
+United States (MIDUS II)}
+
+The Daily Stress Project of MIDUS II was designed to examine how
+sociodemographic factors, health status, personality
+characteristics, and genetic endowment modify patterns of change
+in exposure to day-to-day life stressors as well as physical and
+emotional reactivity to these stressors \cite{ryff10}. The survey
+data were collected from $2,022$ noninstitutionalized adults aged
+35 to 85 in the United States from 2004 to 2009. Participants
+completed daily phone surveys on stressors, physical symptoms, and
+positive/negative affect for 8 consecutive days.
+
+Although daily process methods provide prospective data for
+examining the dynamic associations between health behaviors, they
+unavoidably involve self-monitoring of the target behavior, which
+is an active component of some cognitive-behavioral interventions
+\cite{simpson05}. The potential \emph{measurement reactivity}
+(defined changing the target behavior due to self-awareness) is
+undesirable for those studies that aim to investigate the
+association between the target behavior and its precursor or
+consequence. On the other hand, for those applications aiming to
+facilitate behavior changes, such an effect can be used to boost
+or extend intervention effects \cite{tucker12}. Thus, verifying
+measurement reactivity is an important research question,
+especially given that existing empirical investigations are few
+and have produced mixed results \cite{barta12,stritzke05}.
+
+Our investigation aims to (1) characterize the gender-specific
+patterns of change in self-reported physical symptoms during the 8
+days of assessment, and (2) test gender differences in patterns of
+change. In our analysis, the outcome at each time point is a
+binary variable for any physical symptoms reported in a day
+($1=$yes; $0=$no). Gender is treated as a time-varying effect
+through $\beta(t)$ in Model (\ref{Model}); the link function
+$g(\cdot)$ is the logit. Using AIC and BIC, we choose 3 knots to
+approximate the patterns of change. Panels (c) and (d) in Figure 1
+show the patterns of change in the odds of reporting any physical
+symptoms for females and males, respectively. Females tend to have
+much greater odds of reporting physical symptoms, particularly in
+the first few days. Further, measurement reactivity is evident in
+both gender groups in the beginning of the assessment period.
+Moreover, the result of the generalized likelihood ratio test
+indicates that there are significant gender differences with
+$T=50.42$ and the corresponding p-value estimated to be about $0$
+by bootstrap sampling.
+
+
+\section{Simulation study}
+
+In this section, we examine the performance of the proposed method
+under different situations. The design of the simulation is based
+on the feature of the MIDUS data demonstrated in the motivating
+examples section. The response is a binary variable which follows
+Model (\ref{Model}) with the link function $g(\cdot)$ being the
+logit function and the group indicator $k=1$ corresponding to
+females. We generate the response $Y$ using the estimated
+functions of $\mu(t)$, $\beta(t)$ and $b_i$ from the fitted model
+of these national data. We manipulate \textbf{four} factors: (i)
+the sample size: $N=100, 200$ and $400$; (ii) the number of time
+points: $J=8$ and $16$; (iii) the proportion of zeros in the
+response $Y$ from all participants across all waves: 30\%, 50\%,
+and 70\%; and (iv) the gender ratio: $1:1$ and $3:1$. We expect
+the performance improves with the sample size and the number of
+time points. We also expect that the proposed method may perform
+better in the setting with $50\%$ zeros than in the other
+settings, because the former tends to have greater Fisher
+information. Furthermore, we expect the performance to be better
+when the sample sizes of the two gender groups are about the same.
+
+\subsection{The Accuracy of Estimation of Trajectory Functions}
+
+We evaluate the performance of the proposed method concerning the
+accuracy of the estimation of trajectory functions, $\mu(t)$ and
+$\beta(t)$, under different combinations of the sample size, the
+number of time points and the proportion of zeros. It is
+straightforward to manipulate the former two factors. However, the
+proportion of zeros in the response is manipulated indirectly by
+altering $\mu(t)$ and $\beta(t)$. Let $\hat{\mu}_{0}(t)$ and
+$\hat{\beta}_{0}(t)$ be the trajectory functions in the model
+fitted on the national data. We obtain three different proportions
+of zeros, $30\%$, $50\%$, and $70\%$, through the following
+trajectory functions, respectively: (1) $\mu(t)=\hat{\mu}_{0}(t)$
+and $\beta(t)=\hat{\beta}_{0}(t)$; (2) $\mu(t)=\hat{\mu}_{0}(t)$
+and $\beta(t)=-2\hat{\beta}_{0}(t)$; and (3)
+$\mu(t)=-1.8\hat{\mu}_{0}(t)$ and $\beta(t)=\hat{\beta}_{0}(t)$.
+Please note that the function $\mu(t)$ here refers to the one
+defined in Equation (1) rather than the mean of the response $Y$.
+The criterion for evaluating the accuracy of estimation of
+trajectory functions is the mean integrated squared error (MISE):
+\begin{center}
+$MISE=\frac{1}{NJ}\Sigma_{i=1}^{N}\Sigma_{j=1}^{J}((\hat{\mu}(t_{ij})-\mu(t_{ij}))^{2}+(\hat{\beta}(t_{ij})-\beta(t_{ij}))^{2}).$
+\end{center}
+Table 1 shows the MISE and its empirical standard error under
+different combinations of the three factors. Based on the table,
+the accuracy of the proposed method improves as the sample size
+and the number of time points increase. For example, when $N=100$
+and $J=8$, the MISE and the corresponding standard error are
+larger in comparison to other settings with the same proportion of
+zeros in the responses. Controlling for the effects of sample size
+and number of time points, when the proportion of zeros increases
+from 30\% to 50\%, the performance of our method does not change
+much as demonstrated by the similar MISEs and standard errors.
+However, when the proportion of zeros increases from 50\% to 70\%,
+the performance of our method becomes worse based on the larger
+MISEs and standard errors. Furthermore, the performance of the
+method tends to be better when the gender ratio is $1:1$ (like the
+national data example), in comparison to the setting when the
+gender ratio is $3:1$ (like the MLS data example). However, the
+impact of gender ratio becomes unimportant when the proportion of
+zeros is 70\% and the performance is poor anyway.
+
+\subsection{The Type I Error Rate and Power of the Hypothesis
+Testing}
+
+We also evaluate the performance of the hypothesis testing in
+terms of the type I error rate and power. Our simulation involves
+the setting of $H_{0}: \beta(t)=0$ versus $H_{1}:
+\beta(t)=\delta\hat{\beta}(t)$, where $\hat{\beta}(t)$ is the
+trajectory function in the model fitted on the national data; and
+the value of $\delta$ is manipulated to reflect different levels
+of deviation from $H_0$. In this part of the simulation study, we
+only manipulate the sample size and the number of time points
+because manipulating the proportion of zeros would require
+altering $\beta(t)$. We also adopt the gender ratio in the
+national data when generating the gender of the subjects in the
+simulation samples. Because the proposed model is nonparametric,
+we can only derive the empirical distribution of the test
+statistics $T=2\{\ell(H_{1})-\ell(H_{0})\}$ through simulation.
+Under each combination of the sample size and the number of time
+points, we generate $10000$ data sets under $H_0$ and then conduct
+the hypothesis testing which results in $10000$ values of $T$. The
+critical values of $T_{0.01}, T_{0.05}, T_{0.10}, T_{0.25}$ are
+thus the $99$th, $95$th, $90$th, and $75$th percentiles from this
+empirical distribution of $T$. After obtaining the critical values
+under each situation, we investigate the effect of $\delta$ on the
+power of the test by taking a grid of $\delta$ over $(0,2)$. Under
+each situation, we generate $1000$ data sets for each value of
+$\delta$ and conduct the hypothesis testing on the data sets
+(using the 4 critical values) to examine the type I error rate and
+the power corresponding to the 4 values of $\alpha$ (i.e.
+significance levels). Table 2 shows the type I error rates (i.e.
+the values of power when $\delta=0$), which are close to their
+corresponding significance levels under all settings. Figure 2
+depicts the power as a function of $\delta$ and $\alpha$ under
+different situations. As demonstrated by the figure, the power
+increases as $\delta$ increases and the value of power is 1 when
+$\delta$ is greater than 1.5. In addition, the rate of this
+increasing trend is higher when the sample size and the number of
+time points are larger.
+
+\section{Discussion}
+
+This study proposes a time-varying effect model that can be used
+to characterize gender-specific trajectories of health behaviors
+and conduct hypothesis testing for gender differences. The major
+strengths of the model include (1) treating gender differences as
+a time-varying effect; and (2) modeling time-varying effects with
+flexible smooth functions derived from empirical data. The
+proposed model can be applied to not only multi-wave longitudinal
+studies like the MLS, but also short-term studies that involve
+intensive data collection such as the daily diary data from the
+MIDUS. Furthermore, the design of our simulation study is unique
+because it simulates the features of the MIDUS data so that the
+results can be generalizable to the field of health behavior
+research.
+
+The simulation study shows that the accuracy of estimation of
+trajectory functions improves as the sample size and the number of
+time points increase. Controlling for the effects of these two
+factors, the proportion of zeros only has a considerable negative
+effect on accuracy when it increases from 50\% to 70\%. In terms
+of the performance of the hypothesis testing, the type I error
+rates are close to their corresponding significance levels under
+all combinations of sample size and number of time points.
+Furthermore, the power increases as the alternative hypothesis
+deviates more from the null hypothesis and the rate of this
+increasing trend is higher when the sample size and the number of
+time points are larger.
+
+Although the methodology proposed in this study was motivated by
+our research interest in gender differences, it can be applied to
+a variety of contexts that involve the comparison between two
+trajectories or change patterns. For example, the model can be
+used to characterize the developmental trajectory of substance use
+among children of alcoholic (COA) and compare it with the
+trajectory of non-COA. Future work may be needed to extend the
+methodology to handle the settings with more than two groups such
+as studying racial differences.
+
+The proposed model accounts for subject-specific effects only
+through a random intercept. Thus, the outcomes of the same subject
+at any two time points are treated as equally correlated
+regardless of the size of the time difference between the time
+points, and this may not be realistic in some settings. Popular
+longitudinal models assuming autocorrelation for the residuals
+(such as AR-1), on the other hand, treat the lag between each
+consecutive pair of measurements as equivalent. This assumption
+may not apply to those settings that involve random or
+inconsistent measurement times. A more straightforward way to
+incorporate longitudinal correlation, therefore, is to add a
+random subject-level slope to the right-hand side of Model (1).
+Further research is, thus, warranted regarding how best to
+implement more complex random effect structures while still
+allowing the time-varying effects to be easily estimated and
+interpreted with standard software.
+
+
+In spite of the fact that the proposed model can handle a variety
+of measurement scales under the framework of generalized linear
+models such as continuous and binary outcomes (as demonstrated in
+our motivating examples), future work is needed to extend the
+model to deal with other scales that are also common in the health
+behavior field including ordinal outcomes (e.g. \cite{dziak14})
+and zero-inflated counts (e.g. \cite{buu11,buu12}). Furthermore,
+our work in this paper focuses on the setting that involves a
+single health behavior. Future studies may consider modeling
+\emph{multiple} health behaviors that tend to co-occur such as
+substance use behaviors, violence behaviors, and HIV sexual risk
+behaviors.
+
+%extra content to check
+
+
+\begin{enumerate*}
+\item \textbf{Multiplication of two numbers with the same base and different exponents.} Add the exponents together:\vspace*{-3pt}
+\begin{equation*}
+x^a x^b=x^{a+b}.
+\end{equation*}
+\item \textbf{Division of two numbers with the same base and different exponents.} Subtract the bottom exponent from the top exponent:
+\begin{equation*}
+\frac{x^a}{x^b}=x^{a-b}.
+\end{equation*}
+\item \textbf{Negative exponents.}  Take the reciprocal, but change the negative exponent to a positive one:\vspace*{-3pt}
+\begin{equation*}
+x^{-a}=\frac{1}{x^a}.
+\end{equation*}
+\item \textbf{Exponents of 0.}  $0^0$ is undefined, but taking any other number to the zero power produces 1:\vspace*{-3pt}
+\begin{equation*}
+x^0=1 \text{   for any   }x\neq 0.
+\end{equation*}
+\item \textbf{Exponents of 1.}  Taking the first power of any number returns the number:
+\begin{equation*}
+x^1=x\text{   for all   }x.
+\end{equation*}
+\item \textbf{Multiple layers of exponents.}  Multiply the different layers together:
+\begin{equation*}
+(x^a)^b=x^{ab}.
+\end{equation*}
+\item \textbf{Multiplication of numbers with different bases and the same exponent.}  The product of the different bases can be set to the common exponent:
+\begin{equation*}
+x^ay^a=(xy)^a.
+\end{equation*}
+\item \textbf{Division of numbers with different bases and the same exponent.} The fraction of the different bases can be set to the common exponent:
+\begin{equation*}
+\frac{x^a}{y^a}=\bigg(\frac{x}{y}\bigg)^a.
+\end{equation*}
+\end{enumerate*}
+
+\begin{enumerate*}
+\item $_a\sqrt{x}_b\sqrt{x}=x^{\frac{1}{a}}x^{\frac{1}{b}}=x^{\frac{1}{a}+\frac{1}{b}}=x^{\frac{a+b}{ab}}=({x^{a+b}})^{\frac{1}{ab}}=_{ab}\sqrt{x^{a+b}}.$\\[4pt]
+\item $\frac{_a\sqrt{x}}{_b\sqrt{x}}=\frac{x^{\frac{1}{a}}}{x^{\frac{1}{b}}}=x^{\frac{1}{a}-\frac{1}{b}}=x^{\frac{b-a}{ab}}=({x^{b-a}})^{\frac{1}{ab}}=_{ab}\sqrt{x^{b-a}}.$\\[4pt]
+\item $_{-a}\sqrt{x}=x^{-\frac{1}{a}}=\frac{1}{x^{\frac{1}{a}}}=\frac{1}{_a\sqrt{x}}.$\\[4pt]
+\item $_1\sqrt{x}=x$ for all $x$, so we never consider these \textit{first} roots.\\[4pt]
+\item $_b\sqrt{_a\sqrt{x}}=(x^\frac{1}{a})^\frac{1}{b}=x^{\frac{1}{ab}}=_{ab}\sqrt{x}$.\\[4pt]
+\item $_a\sqrt{x}_a\sqrt{y}=x^{\frac{1}{a}}y^{\frac{1}{a}}=(xy)^{\frac{1}{a}}=_a\sqrt{xy}$.
+\end{enumerate*}
+
+\begin{itemize*}
+\item \textbf{Step 1.} Find the LCD.  Here LCD$(4,6)=12$.
+\item \textbf{Step 2.} For each fraction, multiply the numerator and denominator by the number that makes the denominator equal to the LCD.  For the first fraction, that number is 3 since $4\times3=12$, and for the second fraction that number is 2.  So, changing the fractions, we obtain
+\begin{equation*}
+\frac{3\times3}{4\times3}+\frac{5\times2}{6\times2}=\frac{9}{12}+\frac{10}{12}.
+\end{equation*}
+\item \textbf{Step 3.} Add the numerators, and leave the common denominator alone:
+\begin{equation*}
+\frac{9}{12}+\frac{10}{12}=\frac{19}{12}.
+\end{equation*}
+\end{itemize*}
+
+\begin{enumerate*}
+\setlength\itemsep{3pt}
+\item[(a)] How many possible AES-128 keys are there? Write your answer with an exponent, but in addition, \deleted{in order}to have a sense of how large this number is, use Stata, R, or a similar program to write out the number approximately. (\textit{Hint}: The notation ``e+10'' means that you should move the decimal point 10 places to the right, so 1.23e+10 is 12,300,000,000.) 
+\item[(b)] Suppose that a supercomputer can check 1,000,000,000,000,000 (1 quadril\-lion) possible AES-128 keys every second.  Approximately how long (\textit{hint}: in \textit{years}) would it take the computer to test every possible AES-128 key? 
+\item[(c)] In theory, but probably not yet in reality, there can exist something called a quantum computer that uses the laws of quantum physics to perform many computations at once. 
+\end{enumerate*}
+
+\begin{quotation}
+\noindent Consider a problem that has these four properties:
+\begin{enumerate*}
+\item[1.] The only way to solve it is to guess answers repeatedly and check them,
+\item[2.] the number of possible answers to check is the same as the number of inputs,
+\item[3.] every possible answer takes the same amount of time to check, and
+\item[4.] there are no clues about which answers might be better: generating possibilities randomly is just as good as checking them in some special order.
+\end{enumerate*}\vspace{3pt}
+
+\end{quotation}
+
+%back-start
+\section*{Acknowledgements}
+The work of Yang and Li was supported by the National Institutes
+of Health (NIH) [P50 DA010075, P50 DA036107 & R01 CA168676] and
+the National Science Foundation (NSF) [DMS 1512422]; The work of
+Cranford and Buu was supported by the NIH [R01 DA035183]; and
+Zucker's research was supported by the NIH [R01 AA07065]; and The
+content is solely the responsibility of the authors and does not
+necessarily represent the official views of the NIH and NSF.
+\section*{Conflict of interest statements}
+The authors declare that there is no conflict of interest.
+
+\begin{thebibliography}
+     \bibitem{buu14} Buu A, Dabrowska A, Mygrants M, et al. Gender differences in
+the developmental risk for onset of alcohol, nicotine, and
+marijuana use and the effects of nicotine and marijuana use on
+alcohol outcomes. \textit{Journal of Studies on Alcohol and Drugs}
+2014; 75: 850-858.
+     \bibitem{buu15} Buu A, Dabrowska A, Heinze JE, et al. Gender differences in the developmental
+trajectories of multiple substance use and the effect of nicotine
+and marijuana use on heavy drinking in a high risk sample.
+\textit{Addictive Behaviors} 2015; 50: 6-12.
+     \bibitem{wichstrom01} Wichstrom L. The impact of pubertal
+timing on adolescents' alcohol use. \textit{Journal of Research on
+Adolescence} 2001; 11: 131-150.
+     \bibitem{nolen04} Nolen-Hoeksema S. Gender differences in
+     risk factors and consequences for alcohol use and problems. \textit{Clinical Psychology Review} 2004; 24: 981-1010.
+     \bibitem{keyes08} Keyes KM, Grant BF and Hasin DS. Evidence for a closing gender
+     gap in alcohol use, abuse, and dependence in the United States population. \textit{Drug and Alcohol Dependence} 2008; 93: 21-29.
+      \bibitem{Boden14} Boden JM, Fergusson DM and Horwood LJ. Associations between exposure to stressful life events and alcohol use disorder
+      in a longitudinal birth cohort studied to age 30. \textit{Drug and Alcohol Dependence} 2014; 142: 154-160.
+       \bibitem{smith15} Smith PH, Kasza KA, Hyland A, et al. Gender differences in medication use and cigarette smoking cessation:
+       results from the international tobacco control four country survey. \textit{Nicotine & Tobacco Research} 2015; 17: 463-472.
+     \bibitem{chen12} Chen P and Jacobson KC. Developmental trajectories
+     of substance use from early adolescence to young adulthood: Gender and racial/ethnic differences. \textit{Journal of Adolescent Health} 2012; 50: 154-163.
+     \bibitem{cai00} Cai Z, Fan J and Li R. Efficient estimation
+     and inferences for varying-coefficient models. \textit{Journal of American Statistical Association} 2000; 95: 888-902.
+     \bibitem{dziak14} Dziak JJ, Li R, Zimmerman MA, et al. Time-varying effect models for ordinal responses with applications
+in substance abuse research. \textit{Statistics in Medicine} 2014;
+33: 5126-5137.
+     \bibitem{qu06} Qu AP and Li R. Quadratic inference functions for
+     varying-coefficient models with longitudinal data. \textit{Biometrics} 2006; 62: 379-391.
+     \bibitem{tan12} Tan X, Shiyko M, Li R, et al. A time varying effect model for Intensive longitudinal data. \textit{Psychological Methods} 2012;
+     17: 61-77.
+     \bibitem{wang09} Wang L, Bo K and Li R. Local rank inference
+     for varying coefficient models. \textit{Journal of American Statistical Association} 2009; 104: 1631-1645.
+     \bibitem{zhu12} Zhu H, Li R and Kong L. Multivariate varying coefficient model for functional responses. \textit{Annals of
+     Statistics} 2012; 40: 2634-2666.
+     \bibitem{liu13}  Liu X, Li R, Lanza ST, et al. Understanding the role of cessation fatigue in the smoking
+cessation process. \textit{Drug and Alcohol Dependence} 2013; 133:
+548-555.
+     \bibitem{selya13} Selya AS, Dierker LC, Rose JS, et al.
+Time-varying effects of smoking quantity and nicotine dependence
+on adolescent smoking regularity. \textit{Drug and Alcohol
+Dependence} 2013; 128: 230-237.
+      \bibitem{vasilenko14} Vasilenko S, Piper M, Lanza ST, et al. Time-varying processes involved in smoking lapse in a randomized
+trial of smoking cessation therapies. \textit{Nicotine & Tobacco
+Research} 2014; 16S2: S135-S143.
+      \bibitem{yang15} Yang H, Cranford JA, Li R, et al.
+Two-stage model for time-varying effects of discrete longitudinal
+covariates with applications in analysis of daily process data.
+\textit{Statistics in Medicine} 2015; 34: 571-581.
+      \bibitem{zucker96} Zucker RA, Ellis DA, Fitzgerald HE, et al. Other evidence for at least two alcoholisms ii: life course
+variation
+  in antisociality and heterogeneity of alcoholic outcome.
+\textit{Development and Psychopathology} 1996; 8: 831-848.
+      \bibitem{ryff10} Ryff CD and Almeida DM. National survey of
+      Midlife in the United States (MIDUS II): Daily Stress
+      Project, 2004-2009. ICPSR26841-v1. Ann Arbor, MI:
+      Inter-university Cosortium for Political and Social Research
+      [distributor], 2010-02-26.
+      http://doi.org/10.3886/ICPSR26841.v1
+      \bibitem{mccullagh89} McCullagh P and Nelder JA. \textit{Generalized linear models.} London: Chapman and Hall, 1989.
+      \bibitem{deboor78} de Boor C. \textit{A practical guide to splines.} New York, NY: Springer-Verlag, 1978.
+      \bibitem{shiyko12} Shiyko MP, Lanza ST, Tan X, et al. Using the time-varying effect model (TVEM)
+        to examine dynamic associations between negative affect and self-confidence on smoking urges:
+        Differences between successful quitters and relapsers. \textit{Prevention Science} 2012; 13: 288-299.
+      \bibitem{simpson05} Simpson TL, Kivlahan DR, Bush KR, et al. Telephone self-monitoring among alcohol use disorder patients in
+early recovery: A randomized study of feasibility and measurement
+reactivity. \textit{Drug and Alcohol Dependence} 2005; 79:
+241-250.
+       \bibitem{tucker12} Tucker JA, Blum ER, Xie L, et al.
+       Interactive voice response self-monitoring to assess risk behaviors in rural substance users living with HIV/AIDS. \textit{AIDS and Behavior} 2012; 16: 432-440.
+       \bibitem{barta12} Barta WD, Tennen H and Litt MD. Measurement reactivity in diary research. In: Mehl MR and Conner TS (eds) \textit{Handbook of research methods for studying daily
+       life.} New York: Guilford Press, 2012, pp.108-123.
+       \bibitem{stritzke05} Stritzke WGK, Dandy J, Durkin K, et al.
+       Use of interactive voice response (IVR) technology in health research with children. \textit{Behavior Research Methods} 2005; 37: 119-126.
+       \bibitem{buu11} Buu A, Johnson NJ, Li R, et al. New variable selection methods for zero-inflated
+       count data with applications to the substance abuse field.  \textit{Statistics in Medicine} 2011; 30: 2326-2340.
+       \bibitem{buu12} Buu A, Li R, Tan X, et al. Statistical models for
+       longitudinal zero-inflated count data with applications to the substance abuse field. \textit{Statistics in Medicine} 2012; 31: 4074-4086.
+\end{thebibliography}
+
+
+%back-end
+\end{document}
