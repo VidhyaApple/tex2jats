@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<article>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">SMM</journal-id>
+      <journal-id journal-id-type="hwp">spsmm</journal-id>
+      <journal-id journal-id-type="nlm-ta">Stat Methods Med Res</journal-id>
+      <journal-title-group>
+        <journal-title>Statistical Methods in Medical Research</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0962-2802</issn>
+      <issn pub-type="epub">1477-0334</issn>
+      <publisher>
+        <publisher-name>SAGE Publications</publisher-name>
+        <publisher-loc>Sage UK: London, England</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1177/0000000000000000</article-id>
+      <article-id pub-id-type="publisher-id">10.1177_0000000000000000</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>test-Response-adaptive designs for continuous treatment responses in phase III clinical trials: A review</article-title>
+        <alt-title alt-title-type="left-running-head">journal title</alt-title>
+        <alt-title alt-title-type="right-running-head">author nameauthor name</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Biswas</surname>
+            <given-names>Atanu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1-0000000000000000">1</xref>
+          <xref ref-type="corresp" rid="corresp1-0000000000000000">1</xref>
+        </contrib>
+        <contrib contrib-type="author" corresp="yes">
+          <name>
+            <surname>Bhattacharya</surname>
+            <given-names>Rahul</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff2-0000000000000000">2</xref>
+          <xref ref-type="corresp" rid="corresp2-0000000000000000">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1-0000000000000000"><label>1</label>Applied Statistics Unit, Indian Statistical Institute, Kolkata 700108, India</aff>
+      <aff id="aff2-0000000000000000"><label>2</label>Department of Statistics, West Bengal State University</aff>
+      <author-notes>
+        <corresp id="corresp1-0000000000000000">Address for correspondence: Atanu Biswas, Applied Statistics Unit, Indian Statistical Institute, 203 B. T. Road, Kolkata 700108, India<email>atanu@isical.ac.in</email></corresp>
+      </author-notes>
+      <pub-date pub-type="epub-ppub">
+        <day>00</day>
+        <month>00</month>
+        <year>0000</year>
+      </pub-date>
+      <volume>00</volume>
+      <fpage>00</fpage>
+      <lpage>00</lpage>
+      <permissions>
+        <copyright-statement>&#xA9; The Author(s) 2014</copyright-statement>
+        <copyright-year>2014</copyright-year>
+        <copyright-holder content-type="sage">SAGE Publications</copyright-holder>
+      </permissions>
+      <abstract>
+        <p>A variety of response-adaptive randomisation procedures have been proposed in literature assuming binary outcomes. However, the list is not so large for continuous outcomes though many real clinical trials deal with
+continuous treatment responses. In the present paper, we attempt to explore the available procedures together with a comparison of their performances. Some real life adaptive trial is also reviewed.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>response-adaptive allocation</kwd>
+        <kwd>continuous responses</kwd>
+        <kwd>covariate</kwd>
+        <kwd>delayed response</kwd>
+        <kwd>urn model.</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body/>
+  <back>
+    <ack>
+      <title>Acknowledgements</title>
+      <p>The authors wish to thank the referee for careful reading and suggestions which led to an improvement over an earlier version of the manuscript.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="bibr1-0000000000000000">
+        <label>1</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Connor</surname><given-names> EM</given-names></name><name><surname>Sperling</surname><given-names> RS</given-names></name><name><surname>Gelber</surname><given-names> R</given-names></name><etal/></person-group>.<article-title>Reduction of maternal-infant transmission of human immunodeficiency virus of type 1 with zidovudine treatment.</article-title>.<source>New England Journal of Medicine</source><year>1994</year>;<volume>331</volume>:<fpage>1173</fpage>&#x2013;<lpage>1180</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr2-0000000000000000">
+        <label>2</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Zelen</surname><given-names> M</given-names></name><name><surname>Wei</surname><given-names> LJ</given-names></name></person-group><article-title> Foreword</article-title>. In:<person-group person-group-type="editor"><name><surname>Flournoy</surname><given-names> N</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>(eds).<source>Adaptive designs.</source>,<publisher-loc>  Hay ward, CA</publisher-loc>:<publisher-name> IMS</publisher-name>,<year> 1995</year>, </mixed-citation>
+      </ref>
+      <ref id="bibr3-0000000000000000">
+        <label>3</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Yao</surname><given-names> Q</given-names></name><name><surname>Wei</surname><given-names> LJ</given-names></name></person-group>.<article-title>Play the winner for phase II/III
+clinical trials.</article-title>.<source>Statistics in Medicine</source><year>1996</year>;<volume>15</volume>:<fpage>2413</fpage>&#x2013;<lpage>2423</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr4-0000000000000000">
+        <label>4</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wei</surname><given-names> LJ</given-names></name><name><surname>Durham</surname><given-names> S</given-names></name></person-group>.<article-title>The randomized play-the-winner rule in medical trials.</article-title>.<source>Journal of the American Statistical Association</source><year>1978</year>;<volume>73</volume>:<fpage>840</fpage>&#x2013;<lpage>843</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr5-0000000000000000">
+        <label>5</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dragalin</surname><given-names> V</given-names></name></person-group>.<article-title>Adaptive designs: terminology and classifications.</article-title>.<source>Drug Information Journal</source><year>2006</year>;<volume>40</volume>:<fpage>425</fpage>&#x2013;<lpage>435</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr6-0000000000000000">
+        <label>6</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Thompson</surname><given-names> WR</given-names></name></person-group>.<article-title>On the likelihood that one unknown probability exceeds another in the view of the evidence of the two samples.</article-title>.<source>Biometrika</source><year>1933</year>;<volume>25</volume>:<fpage>275</fpage>&#x2013;<lpage>294</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr7-0000000000000000">
+        <label>7</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Robbins</surname><given-names> H</given-names></name></person-group>.<article-title>Some aspects of the sequential design of experiments.</article-title>.<source>Bulletin of American Mathematical Society</source><year>1952</year>;<volume>58</volume>:<fpage>527</fpage>&#x2013;<lpage>535</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr8-0000000000000000">
+        <label>8</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Anscombe</surname><given-names> FJ</given-names></name></person-group>.<article-title>Sequential medical trials.</article-title>.<source>Journal of the American Statistical Association</source><year>1963</year>;<volume>58</volume>:<fpage>365</fpage>&#x2013;<lpage>384</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr-0000000000000000">
+        <label/>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname/><given-names/></name></person-group>.</mixed-citation>
+      </ref>
+      <ref id="bibr10-0000000000000000">
+        <label>10</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Lachin</surname><given-names> JM</given-names></name></person-group>.<article-title>The use of response-adaptive designs in clinical trials.</article-title>.<source>Controlled Clinical Trials</source><year>1993</year>;<volume>14</volume>:<fpage>471</fpage>&#x2013;<lpage>484</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr11-0000000000000000">
+        <label>11</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>New directions in adaptive designs.</article-title>.<source>Statistical Science</source><year>1996</year>;<volume>11</volume>:<fpage>137</fpage>&#x2013;<lpage>149</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr12-0000000000000000">
+        <label>12</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Lachin</surname><given-names> JL</given-names></name></person-group>.<source>Randomisation in clinical trials: Theory and practice.</source>,<publisher-loc> New York, NY</publisher-loc>:<publisher-name> Wiley</publisher-name>,<year> 2002</year>, </mixed-citation>
+      </ref>
+      <ref id="bibr13-0000000000000000">
+        <label>13</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Chow</surname><given-names> Sh-Ch</given-names></name><name><surname>Chang</surname><given-names> M</given-names></name></person-group>.<source>Adaptive design methods in clinical trials.</source>,<publisher-loc> Boca Raton</publisher-loc>:<publisher-name> Chapman Hall CRC</publisher-name>,<year> 2006</year>, </mixed-citation>
+      </ref>
+      <ref id="bibr-0000000000000000">
+        <label/>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname/><given-names/></name></person-group>.</mixed-citation>
+      </ref>
+      <ref id="bibr15-0000000000000000">
+        <label>15</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zelen</surname><given-names> M</given-names></name></person-group>.<article-title>Play the winner rule and the controlled clinical trial.</article-title>.<source>Journal of the American Statistical Association</source><year>1969</year>;<volume>64</volume>:<fpage>131</fpage>&#x2013;<lpage>146</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr16-0000000000000000">
+        <label>16</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Durham</surname><given-names> SD</given-names></name><name><surname>Flournoy</surname><given-names> N</given-names></name><name><surname>Li</surname><given-names> W</given-names></name></person-group>.<article-title>Sequential designs for maximizing the probability of a favorable response.</article-title>.<source>Canadian Journal of Statistics</source><year>1998</year>;<volume>3</volume>:<fpage>479</fpage>&#x2013;<lpage>495</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr17-0000000000000000">
+        <label>17</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ivanova</surname><given-names> A</given-names></name></person-group>.<article-title>A play-the-winner type urn model with reduced variability.</article-title>.<source>Metrika</source><year>2003</year>;<volume>58</volume>:<fpage>1</fpage>&#x2013;<lpage>13</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr18-0000000000000000">
+        <label>18</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names> LX</given-names></name><name><surname>Chan</surname><given-names> WS</given-names></name><name><surname>Cheung</surname><given-names> SH</given-names></name><etal/></person-group>.<article-title>A generalized drop-the-loser urn for clinical trials with delayed responses.</article-title>.<source>Statistica Sinica</source><year>2007</year>;<volume>17</volume>:<fpage>387</fpage>&#x2013;<lpage>409</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr19-0000000000000000">
+        <label>19</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name></person-group>.<article-title>Adaptive designs in phase III clinical trials: controversies and progress.</article-title>.<source>Statistical Methods in Medical Research</source><year>2001</year>;<volume>10</volume>:<fpage>353</fpage>&#x2013;<lpage>364</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr20-0000000000000000">
+        <label>20</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wilson</surname><given-names> TW</given-names></name><name><surname>Lacourci$\grave{e}$re</surname><given-names> Y</given-names></name><name><surname>Barnes</surname><given-names> CC</given-names></name></person-group>.<article-title>The antihypertensive efficacy of losartan and amlodipine assessed with office and ambulatory blood pressure monitoring.</article-title>.<source>Canadian Medical Association Journal</source><year>1998</year>;<volume>8</volume>:<fpage>469</fpage>&#x2013;<lpage>476</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr21-0000000000000000">
+        <label>21</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Loo</surname><given-names> C</given-names></name><name><surname>Mitchell</surname><given-names> P</given-names></name><name><surname>Sachdev</surname><given-names> P</given-names></name><etal/></person-group>.<article-title>Double-blind controlled investigation of transcranial magnetic stimulation for the treatment of resistant major depression.</article-title>.<source>American Journal of Psychiatry</source><year>1999</year>;<volume>156</volume>:<fpage>946</fpage>&#x2013;<lpage>948</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr22-0000000000000000">
+        <label>22</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tamura</surname><given-names> RN</given-names></name><name><surname>Faries</surname><given-names> DE</given-names></name><name><surname>Andersen</surname><given-names> JS</given-names></name><etal/></person-group>.<article-title>A case study of an adaptive clinical trial in the treatment of out-patients with depressive disorder.</article-title>.<source>Journal of the American Statistical Association</source><year>1994</year>;<volume>89</volume>:<fpage>768</fpage>&#x2013;<lpage>776</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr23-0000000000000000">
+        <label>23</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Dworkin</surname><given-names> RH</given-names></name><name><surname>Corbin</surname><given-names> AE</given-names></name><name><surname>Young</surname><given-names> JP</given-names></name><etal/></person-group>.<article-title>Pregabalin for the treatment of  postherpetic neuralgia. A randomized, placebo-controlled trial.</article-title>.<source>Neurology</source><year>2003</year>;<volume>60</volume>:<fpage>1274</fpage>&#x2013;<lpage>1283</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr24-0000000000000000">
+        <label>24</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names> LX</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>Response-adaptive randomization for clinical trials with continuous outcomes.</article-title>.<source>Biometrics</source><year>2006</year>;<volume>62</volume>:<fpage>562</fpage>&#x2013;<lpage>569</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr25-0000000000000000">
+        <label>25</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Biswas A</surname><given-names/></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>Kernel based response-adaptive design for continuous responses.</article-title>.<source>Communications in Statistics: Theory and Methods</source><year>2008</year>;<volume>38</volume>:<fpage>2691</fpage>&#x2013;<lpage>2705</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr26-0000000000000000">
+        <label>26</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Biswas A</surname><given-names/></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>A new response-adaptive design for continuous treatment responses for phase III clinical trials.</article-title>.<source>Journal of Statistical Planning and Inference</source><year>2011</year>;<volume>141</volume>:<fpage>2256</fpage>&#x2013;<lpage>2265</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr27-0000000000000000">
+        <label>27</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Fu</surname><given-names> X</given-names></name><name><surname>Shen</surname><given-names> Z</given-names></name><name><surname>Chen</surname><given-names> Y</given-names></name><etal/></person-group>.<article-title>Randomised placebo-controlled trial of use of topical recombinant bovine basic fibroblast growth factor for second-degree burns.</article-title>.<source>Lancet</source><year>1998</year>;<volume>352</volume>:<fpage>1661</fpage>&#x2013;<lpage>1664</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr28-0000000000000000">
+        <label>28</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Biswas</surname><given-names> A</given-names></name></person-group>.<article-title>Delayed response in randomized play-the-winner rule: a  decision  theoretic outlook.</article-title>.<source>Calcutta Statistical Association Bulletin</source><year>1996</year>;<volume>46</volume>:<fpage>69</fpage>&#x2013;<lpage>88</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr29-0000000000000000">
+        <label>29</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>Asymptotic inference with response-adaptive treatment allocation designs.</article-title>.<source>Annals of Statistics</source><year>1993</year>;<volume>21</volume>:<fpage>2098</fpage>&#x2013;<lpage>2107</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr30-0000000000000000">
+        <label>30</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Seshaiyer</surname><given-names> P</given-names></name></person-group>.<article-title>Adaptive survival trials.</article-title>.<source>Journal of Biopharmaceutical Statistics</source><year>1997</year>;<volume>7</volume>:<fpage>617</fpage>&#x2013;<lpage>624</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr31-0000000000000000">
+        <label>31</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ivanova</surname><given-names> A</given-names></name><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Lurie</surname><given-names> H</given-names></name></person-group>.<article-title>Response adaptive designs for continuous outcomes.</article-title>.<source>Journal of the Statistical Planning and Inference</source><year>2006</year>;<volume>136</volume>:<fpage>1845</fpage>&#x2013;<lpage>1852</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr32-0000000000000000">
+        <label>32</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas A</surname><given-names/></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>Optimal response-adaptive designs for normal responses.</article-title>.<source>Biometrical Journal</source><year>2009</year>;<volume>51</volume>:<fpage>193</fpage>&#x2013;<lpage>202</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr33-0000000000000000">
+        <label>33</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Biswas</surname><given-names> A</given-names></name></person-group>.<article-title>An adaptive allocation for continuous response using Wilcoxon-Mann-Whitney score.</article-title>.<source>Journal of Statistical Planning and Inference</source><year>2004</year>;<volume>123</volume>:<fpage>207</fpage>&#x2013;<lpage>224</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr34-0000000000000000">
+        <label>34</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Eisele</surname><given-names> J</given-names></name></person-group>.<article-title>The doubly adaptive biased coin design for sequential clinical trials.</article-title>.<source>Journal of Statistical Planning and Inference</source><year>1994</year>;<volume>38</volume>:<fpage>249</fpage>&#x2013;<lpage>262</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr35-0000000000000000">
+        <label>35</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Eisele</surname><given-names> J</given-names></name><name><surname>Woodroofe</surname><given-names> M</given-names></name></person-group>.<article-title>Central limit theorems for doubly adaptive biased coin designs.</article-title>.<source>Annals of Statistics</source><year>1995</year>;<volume>23</volume>:<fpage>234</fpage>&#x2013;<lpage>254</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr36-0000000000000000">
+        <label>36</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Zhang</surname><given-names> LX</given-names></name></person-group>.<article-title>Asymptotic properties of doubly adaptive biased coin design for multi-treatment clinical trials.</article-title>.<source>Annals of Statistics</source><year>2004</year>;<volume>32</volume>:<fpage>268</fpage>&#x2013;<lpage>301</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr37-0000000000000000">
+        <label>37</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Melfi</surname><given-names> VF</given-names></name><name><surname>Page</surname><given-names> C</given-names></name><name><surname>Geraldes</surname><given-names> M</given-names></name></person-group>.<article-title>An adaptive randomized design with application to estimation.</article-title>.<source>Canadian Journal of Statistics</source><year>2001</year>;<volume>29</volume>:<fpage>107</fpage>&#x2013;<lpage>116</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr38-0000000000000000">
+        <label>38</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Stallard</surname><given-names> N</given-names></name><name><surname>Ivanova</surname><given-names> A</given-names></name><etal/></person-group>.<article-title>Optimal adaptive designs for binary response trials.</article-title>.<source>Biometrics</source><year>2001</year>;<volume>57</volume>:<fpage>173</fpage>&#x2013;<lpage>177</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr39-0000000000000000">
+        <label>39</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>Adaptive Allocation and Failure Saving in Randomised Clinical Trials.</article-title>.<source>Journal of Biopharmaceutical Statistics</source><year>2006</year>;<volume>16</volume>:<fpage>1</fpage>&#x2013;<lpage>13</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr40-0000000000000000">
+        <label>40</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Imrey</surname><given-names> PB</given-names></name><name><surname>Kingman</surname><given-names> A</given-names></name></person-group>.<article-title>Analysis of clinical trials involving non-cavitated caries lesions.</article-title>.<source>Journal of Dental Research</source><year>2004</year>;<volume>83</volume>:</mixed-citation>
+      </ref>
+      <ref id="bibr41-0000000000000000">
+        <label>41</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Jennison</surname><given-names> C</given-names></name><name><surname>Turnbull</surname><given-names> BW</given-names></name></person-group>.<source>Group sequential methods with applications to clinical trials.</source>,<publisher-loc> Boca Raton, Florida</publisher-loc>:<publisher-name> Chapman and
+Hall/CRC</publisher-name>,<year> 2000</year>, </mixed-citation>
+      </ref>
+      <ref id="bibr42-0000000000000000">
+        <label>42</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Hardwick</surname><given-names> J</given-names></name><name><surname>Stout</surname><given-names> QF</given-names></name></person-group><article-title>  Flexible algorithms for creating and analyzing adaptive sampling procedures</article-title>. In:<person-group person-group-type="editor"><name><surname>Flournoy</surname><given-names> N</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Wong</surname><given-names> WK</given-names></name></person-group>(eds).<source>New developments and applications in experimental design.</source>,<publisher-loc> Hayward</publisher-loc>:<publisher-name> Institute of Mathematical Statistics</publisher-name>,<year> 1998</year>, pp.<fpage>91</fpage>&#x2013;<lpage>105</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr43-0000000000000000">
+        <label>43</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name><name><surname>Zhang</surname><given-names> L</given-names></name></person-group>.<article-title>Optimal Response-Adaptive Designs for continuous responses in Phase III  trials.</article-title>.<source>Biometrical Journal</source><year>2007</year>;<volume>49</volume>:<fpage>928</fpage>&#x2013;<lpage>940</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr44-0000000000000000">
+        <label>44</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Mandal</surname><given-names> S</given-names></name></person-group><article-title> Optimal adaptive designs in
+phase III clinical trials for continuous responses with covariates</article-title>. In:<person-group person-group-type="editor"><name><surname>Bucchianico</surname><given-names> ADi</given-names></name><name><surname>L$\ddot{a}$uter</surname><given-names> H</given-names></name><name><surname>Wynn</surname><given-names> HP</given-names></name></person-group>(eds).<source>moDa 7 - Advances in model-oriented design and analysis.</source>,<publisher-loc> Heidelberg</publisher-loc>:<publisher-name> Physica-Verlag</publisher-name>,<year> 2004</year>, pp.<fpage>51</fpage>&#x2013;<lpage>58</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr45-0000000000000000">
+        <label>45</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>Response adaptive procedures with dual optimality.</article-title>.<source>Statistica Neerlandica</source><year>2009</year>;<volume>63</volume>:<fpage>353</fpage>&#x2013;<lpage>367</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr46-0000000000000000">
+        <label>46</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>An optimal response-adaptive design with dual constraints.</article-title>.<source>Statistics \&amp; Probability Letters</source><year>2010</year>;<volume>80</volume>:<fpage>177</fpage>&#x2013;<lpage>185</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr47-0000000000000000">
+        <label>47</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Antognini</surname><given-names> AB</given-names></name><name><surname>Giovagnoli</surname><given-names> A</given-names></name></person-group>.<article-title>On the large sample optimality of sequential designs for comparing two or more treatments.</article-title>.<source>Sequential Analysis</source><year>2005</year>;<volume>24</volume>:<fpage>205</fpage>&#x2013;<lpage>217</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr48-0000000000000000">
+        <label>48</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Silvey</surname><given-names> SD</given-names></name></person-group>.<source>Optimum design.</source>,<publisher-loc> London</publisher-loc>:<publisher-name> Chapman and Hall</publisher-name>,<year> 1980</year>, </mixed-citation>
+      </ref>
+      <ref id="bibr49-0000000000000000">
+        <label>49</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names> L</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>Response-adaptive randomization for survival trials: The parametric approach.</article-title>.<source>Journal of the Royal Statistical Society Series C</source><year>2007</year>;<volume>34</volume>:<fpage>562</fpage>&#x2013;<lpage>569</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr50-0000000000000000">
+        <label>50</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Tymofyeyev</surname><given-names> Y</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Hu</surname><given-names> F</given-names></name></person-group>.<article-title>Implementing optimal allocation in sequential binary response experiments.</article-title>.<source>Journal of American Statistical Association</source><year>2007</year>;<volume>102</volume>:<fpage>224</fpage>&#x2013;<lpage>234</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr51-0000000000000000">
+        <label>51</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhu</surname><given-names> H</given-names></name><name><surname>Hu</surname><given-names> F</given-names></name></person-group>.<article-title>Implementing optimal allocation in sequential continuous response experiments.</article-title>.<source>Journal of  Statistical Planning and  Inference</source><year>2009</year>;<volume>139</volume>:<fpage>2420</fpage>&#x2013;<lpage>2430</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr52-0000000000000000">
+        <label>52</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Mandal</surname><given-names> S</given-names></name><name><surname>Bhattacharya</surname><given-names> R</given-names></name></person-group>.<article-title>Multi-treatment optimal response-adaptive designs for phase III clinical trials.</article-title>.<source>Journal of the Korean Statistical Society</source><year>2010</year>;<volume>40</volume>:<fpage>33</fpage>&#x2013;<lpage>44</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr-0000000000000000">
+        <label/>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname/><given-names/></name></person-group>.</mixed-citation>
+      </ref>
+      <ref id="bibr54-0000000000000000">
+        <label>54</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Begg</surname><given-names> CB</given-names></name><name><surname>Iglewicz</surname><given-names> B</given-names></name></person-group>.<article-title>A treatment allocation
+procedure for sequential clinical trials.</article-title>.<source>Biometrics</source><year>1980</year>;<volume>36</volume>:<fpage>81</fpage>&#x2013;<lpage>90</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr55-0000000000000000">
+        <label>55</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Atkinson</surname><given-names> AC</given-names></name></person-group>.<article-title>Optimum biased coin designs for sequential clinical trials with prognostic factors.</article-title>.<source>Biometrika</source><year>1982</year>;<volume>69</volume>:<fpage>61</fpage>&#x2013;<lpage>67</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr56-0000000000000000">
+        <label>56</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Atkinson</surname><given-names> AC</given-names></name></person-group>.<article-title>Optimum biased-coin designs for sequential treatment allocation with covariate information.</article-title>.<source>Statistics in Medicine</source><year>1999</year>;<volume>18</volume>:<fpage>1741</fpage>&#x2013;<lpage>1752</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr57-0000000000000000">
+        <label>57</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Atkinson</surname><given-names> AC</given-names></name></person-group>.<article-title>Bayesian and other biased-coin designs for sequential clinical trials.</article-title>.<source>Tatra Mountains Mathematical Publications</source><year>1999</year>;<volume>17</volume>:<fpage>133</fpage>&#x2013;<lpage>139</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr58-0000000000000000">
+        <label>58</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Atkinson</surname><given-names> AC</given-names></name><name><surname>Biswas</surname><given-names> A</given-names></name></person-group>.<article-title>Bayesian adaptive biased-coin designs for clinical trials with normal responses.</article-title>.<source>Biometrics</source><year>2005</year>;<volume>61</volume>:<fpage>118</fpage>&#x2013;<lpage>125</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr59-0000000000000000">
+        <label>59</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wong</surname><given-names> WK</given-names></name><name><surname>Zhu</surname><given-names> W</given-names></name></person-group>.<article-title>Optimum treatment allocation rules under a variance heterogeneity model.</article-title>.<source>Statistics in Medicine</source><year>2008</year>;<volume>27</volume>:<fpage>4581</fpage>&#x2013;<lpage>4595</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr60-0000000000000000">
+        <label>60</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bandyopadhyay</surname><given-names> U</given-names></name><name><surname>Biswas</surname><given-names> A</given-names></name></person-group>.<article-title>Adaptive designs for normal responses with prognostic factors.</article-title>.<source>Biometrika</source><year>2001</year>;<volume>88</volume>:<fpage>409</fpage>&#x2013;<lpage>419</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr61-0000000000000000">
+        <label>61</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Coad</surname><given-names> DS</given-names></name></person-group>.<article-title>A general multi-treatment adaptive design for multivariate responses.</article-title>.<source>Sequential Analysis</source><year>2005</year>;<volume>24</volume>:<fpage>139</fpage>&#x2013;<lpage>158</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr62-0000000000000000">
+        <label>62</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Huang</surname><given-names> HH</given-names></name><name><surname>Huang</surname><given-names> WT</given-names></name></person-group>.<article-title>Covariate-adjusted adaptive designs for continuous responses in a Phase III clinical trial:
+Recommendation for practice .</article-title>.<source>Journal of Biopharmaceutical
+Statistics</source><year>2006</year>;<volume>16</volume>:<fpage>227</fpage>&#x2013;<lpage>239</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr63-0000000000000000">
+        <label>63</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names> LX</given-names></name><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Cheung</surname><given-names> SH</given-names></name><etal/></person-group>.<article-title>Asymptotic properties of covariate-adjusted response-adaptive designs.</article-title>.<source>Annals of Statistics</source><year>2007</year>;<volume>35</volume>:<fpage>1166</fpage>&#x2013;<lpage>1182</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr64-0000000000000000">
+        <label>64</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Zhang</surname><given-names> LX</given-names></name><name><surname>Hu</surname><given-names> F</given-names></name></person-group>.<article-title>A new family of covariate-adjusted response adaptive designs and their properties.</article-title>.<source>Applied Mathematics-A Journal Of Chinese Universities; Series B</source><year>2009</year>;<volume>24</volume>:<fpage>1</fpage>&#x2013;<lpage>13</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr65-0000000000000000">
+        <label>65</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Antognini</surname><given-names> AB</given-names></name><name><surname>Zgoraiou</surname><given-names> M</given-names></name></person-group><article-title> Covariate adjusted designs for  combining efficiency, ethics and randomness in normal response trials</article-title>. In:<person-group person-group-type="editor"><name><surname>Giovagnoli</surname><given-names> A</given-names></name><name><surname>Atkinson</surname><given-names> AC</given-names></name><name><surname>Torsney</surname><given-names> B</given-names></name></person-group>(eds).<source>moDa 9 - Advances in model-oriented design and analysis.</source>,<publisher-loc> Berlin, Heidelberg</publisher-loc>:<publisher-name> Springer-Verlag</publisher-name>,<year> 2010</year>, pp.<fpage>17</fpage>&#x2013;<lpage>24</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr66-0000000000000000">
+        <label>66</label>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname>Friedman</surname><given-names> LM</given-names></name><name><surname>Furberg</surname><given-names> CD</given-names></name><name><surname>DeMets</surname><given-names> DL</given-names></name></person-group>.<source>Fundamentals of clinical trials, Third Edition.</source>,<publisher-loc> New York, NY</publisher-loc>:<publisher-name> Springer-Verlag</publisher-name>,<year> 1998</year>, </mixed-citation>
+      </ref>
+      <ref id="bibr-0000000000000000">
+        <label/>
+        <mixed-citation publication-type="book"><person-group person-group-type="author"><name><surname/><given-names/></name></person-group>.</mixed-citation>
+      </ref>
+      <ref id="bibr68-0000000000000000">
+        <label>68</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Angers</surname><given-names> JF</given-names></name></person-group>.<article-title>A Bayesian adaptive design in clinical trials for continuous responses.</article-title>.<source>Statistica Neerlandica</source><year>2002</year>;<volume>56</volume>:<fpage>400</fpage>&#x2013;<lpage>414</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr69-0000000000000000">
+        <label>69</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>Optimality, variability, power: Evaluating response adaptive randomization procedures for treatment comparisons.</article-title>.<source>Journal of American Statistical Association</source><year>2003</year>;<volume>98</volume>:<fpage>671</fpage>&#x2013;<lpage>678</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr70-0000000000000000">
+        <label>70</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name><name><surname>Zhang</surname><given-names> L-X</given-names></name></person-group>.<article-title>Asymptotically best response-adaptive randomization procedures.</article-title>.<source>Journal of Statistical Planning and Inference</source><year>2006</year>;<volume>136</volume>:<fpage>1911</fpage>&#x2013;<lpage>1922</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr71-0000000000000000">
+        <label>71</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Zhang</surname><given-names> L-X</given-names></name><name><surname>He</surname><given-names> X</given-names></name></person-group>.<article-title>Efficient randomized-adaptive designs.</article-title>.<source>The Annals of Statistics</source><year>2009</year>;<volume>37</volume>:<fpage>2543</fpage>&#x2013;<lpage>2560</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr72-0000000000000000">
+        <label>72</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Efron</surname><given-names> B</given-names></name></person-group>.<article-title>Forcing a sequential experiment to be balanced.</article-title>.<source>Biometrika</source><year>1971</year>;<volume>58</volume>:<fpage>403</fpage>&#x2013;<lpage>417</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr73-0000000000000000">
+        <label>73</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Wei</surname><given-names> LJ</given-names></name></person-group>.<article-title>Exact two-sample permutation tests based on the randomized play-the-winner rule in medical trials.</article-title>.<source>Biometrika</source><year>1988</year>;<volume>75</volume>:<fpage>603</fpage>&#x2013;<lpage>606</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr74-0000000000000000">
+        <label>74</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Ivanova</surname><given-names> A</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>A comparison of urn designs for randomized clinical trials of $K&gt;2$ treatments.</article-title>.<source>Journal of Biopharmaceutical Statistics</source><year>2000</year>;<volume>10</volume>:<fpage>93</fpage>&#x2013;<lpage>107</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr75-0000000000000000">
+        <label>75</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Bai</surname><given-names> ZD</given-names></name><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Rosenberger</surname><given-names> WF</given-names></name></person-group>.<article-title>Asymptotic properties of adaptive designs for clinical trials with delayed response.</article-title>.<source>Annals of Statistics</source><year>2002</year>;<volume>30</volume>:<fpage>122</fpage>&#x2013;<lpage>129</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr76-0000000000000000">
+        <label>76</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name></person-group>.<article-title>Generalized delayed response in randomized play-the-winner rule.</article-title>.<source>Communications in Statistics - Simulation and Computation</source><year>2003</year>;<volume>32</volume>:<fpage>259</fpage>&#x2013;<lpage>274</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr77-0000000000000000">
+        <label>77</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Hu</surname><given-names> F</given-names></name><name><surname>Zhang</surname><given-names> LX</given-names></name><name><surname>Cheung</surname><given-names> SH</given-names></name><etal/></person-group>.<article-title>Doubly adaptive biased coin designs with delayed responses.</article-title>.<source>The Canadian Journal of Statistics</source><year>2008</year>;<volume>36</volume>:<fpage>541</fpage>&#x2013;<lpage>559</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr78-0000000000000000">
+        <label>78</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Rout</surname><given-names> CC</given-names></name><name><surname>Rocke</surname><given-names> DA</given-names></name><name><surname>Levin</surname><given-names> J</given-names></name><etal/></person-group>.<article-title>A reevaluation of the role of crystalloid preload in the prevention of hypotension associated with spinal anesthesia for elective cesarean section.</article-title>.<source>Anesthesiology</source><year>1993</year>;<volume>79</volume>:<fpage>262</fpage>&#x2013;<lpage>269</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr79-0000000000000000">
+        <label>79</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Dewanji</surname><given-names> A</given-names></name></person-group>.<article-title>A Randomized longitudinal play-the-winner design for repeated binary data.</article-title>.<source>Australian and New Zealand Journal of Statistics</source><year>2004</year>;<volume>46</volume>:<fpage>675</fpage>&#x2013;<lpage>684</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr80-0000000000000000">
+        <label>80</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Biswas</surname><given-names> A</given-names></name><name><surname>Dewanji</surname><given-names> A</given-names></name></person-group>.<article-title>Inference for a RPW-type clinical trial with repeated monitoring for the treatment of rheumatoid arthritis.</article-title>.<source>Biometrical Journal</source><year>2004</year>;<volume>46</volume>:<fpage>769</fpage>&#x2013;<lpage>779</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr81-0000000000000000">
+        <label>81</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Berry</surname><given-names> DA</given-names></name></person-group>.<article-title>Adaptive clinical trials: The promise and the caution.</article-title>.<source>Journal of  Clinical Oncology</source><year>2011</year>;<volume>29</volume>:<fpage>606</fpage>&#x2013;<lpage>609</lpage>.</mixed-citation>
+      </ref>
+      <ref id="bibr82-0000000000000000">
+        <label>82</label>
+        <mixed-citation publication-type="journal"><person-group person-group-type="author"><name><surname>Korn</surname><given-names> EL</given-names></name><name><surname>Freidlin</surname><given-names> B</given-names></name></person-group>.<article-title>Outcome-adaptive randomization: Is it useful?</article-title>.<source>Journal of  Clinical Oncology</source><year>2011</year>;<volume>29</volume>:<fpage>771</fpage>&#x2013;<lpage>776</lpage>.</mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>

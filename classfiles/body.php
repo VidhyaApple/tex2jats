@@ -36,23 +36,12 @@ class Body extends GetArticleMeta{
 			
 					
 			//changing label to outside of equation (\begin{equation} \label{})
-			$cnt=preg_replace_callback("/\\\\begin{(equation|eqnarray|eqnarray\\*)*}(.*?)\\\\end{(equation|eqnarray|eqnarray\\*)*}/is",function($m){
-				if (strpos($m[2],"**labelref")){
-				 preg_match("/\\*\\*labelref{(.*?)}/is",$m[2],$mlabel);
-				 $m[0]=preg_replace("/\\*\\*labelref{(.*?)}/is","",$m[0]);					
-				 return "**labeleqnref{".$mlabel[1]."}\n".$m[0];
-				 }else{return $m[0];}								
-				
-				 },$cnt);	
-			
-			
+			$cnt=preg_replace_callback("/(\\\\begin{equation})\\s*\\*\\*labelref{(.*?)}/is",function($m){return "**labeleqnref{".$m[2]."}\n".$m[1];},$cnt);	
 			
 			//figure pre manipulation
-			
-			//changed regex to get all the curly braces text in caption
-			$cnt=preg_replace_callback("/\\\\begin{figure}.*?(includegraphics.*?)caption({(((?>[^{}]+)|(?2))*)}).*?end{figure}/s",function($m){
+			$cnt=preg_replace_callback("/\\\\begin{figure}.*?(includegraphics.*?)caption{(.*?)}.*?end{figure}/s",function($m){
 				$figcount=substr_count($m[1],"includegraphics");
-				return "[figcap]".$m[3]."[/figcap($figcount)]";},$cnt);	
+				return "[figcap]".$m[2]."[/figcap($figcount)]";},$cnt);	
 				
 			//table pre manipulation
 			$cnt=$this->tablePreProcess($cnt);	
@@ -60,10 +49,9 @@ class Body extends GetArticleMeta{
 						
 		    file_put_contents("tempbody.tex",$cnt);
 		    shell_exec("/home/vidhya/.cabal/bin/pandoc tempbody.tex --mathml -o temp.xml");
-		    		    
+		    
 		    //AFTER CONVERTING TO XML*******************************************************
 		    $this->xmlfile=file_get_contents("temp.xml");
-		    
 		    $this->sectionProcess();
 		    
 		    //Merging front-back xml
@@ -75,7 +63,7 @@ class Body extends GetArticleMeta{
 			$existed=preg_replace_callback("/\\\\textit({(((?>[^{}]+)|(?1))*)})/s",function($m){
 				return "<italic>".$m[2]."</italic>";
 				},$existed);  //change front matter \textit to italic
-			
+				
 			$this->xmlfile=str_replace("<body/>","<body>\n".$this->xmlfile."</body>",$existed);
 			
 			//replace for bold,italic etc

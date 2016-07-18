@@ -1,0 +1,3042 @@
+<body>
+  <h1 id="introduction">Introduction</h1>
+  <p>
+    Historically, in many fields of health science such as alcohol and substance abuse research, participants were largely male. Thus, our knowledge of the relevant diseases has been built upon data from predominantly male samples. However, females and males are different not only biologically but also psychosocially. The complex interplay between these two types of factors at different developmental stages may result in gender differences that vary across time **citeref
+    <span>buu14,buu15</span>
+    . For example, females’ earlier timing of physical puberty may put them at higher risk for alcohol use in early adolescence **citeref
+    <span>wichstrom01</span>
+    . Other biological factors may, however, prevent females from drinking alcohol in later developmental stages such as higher reactivity to alcohol and greater vulnerability to adverse health effects due to alcohol use **citeref
+    <span>nolen04</span>
+    . In addition, psychosocial factors such as greater social sanctions against females’ alcohol use may contribute to gender differences **citeref
+    <span>nolen04</span>
+    . In fact, the finding of a closing gender gap in alcohol use, abuse, and dependence in the United States population **citeref
+    <span>keyes08</span>
+    tends to reflect the diminishing gender-based drinking norms in the modern society. By understanding gender differences in developmental trajectories of alcohol use or drinking patterns, we may be able to tailor prevention and intervention efforts to the special timing and risky patterns of each gender group and, thus, thwart progression to worse outcomes.
+  </p>
+  <p>
+    According to our review of the empirical studies published in the past two decades, gender has been conventionally treated as a time-invariant effect, that is, both the magnitude and direction of gender differences remain unchanged over time (e.g. **citeref
+    <span>Boden14,smith15</span>
+    ). Yet, a recent study **citeref
+    <span>chen12</span>
+    analyzed 4 waves of data from a nationally representative sample of adolescents and found similar developmental trajectories for alcohol use, nicotine use and marijuana use by gender: females tended to be involved in higher levels of substance use in early adolescence, whereas males exhibited greater increases across time and higher levels of use in mid-adolescence and early adulthood. An important limitation of the methodology used in the study is that the developmental trajectories for all the three substances were derived by fitting quadratic growth models that pre-specified a simple shape for developmental changes, which may contribute to the similarity in trajectories across substances. In addition, gender differences were tested
+    <em>implicitly</em>
+    through the interactions between the group indicator and linear/quadratic terms. Such simple shapes can hardly characterize the complex developmental trajectories of substance use, especially when there are many time points spanning a long developmental period.
+  </p>
+  <p>
+    In recent years, the time-varying effect model (TVEM) has been introduced and extended for broader applications in the substance abuse field **citeref
+    <span>cai00,dziak14,qu06,tan12,wang09,zhu12</span>
+    . The TVEM
+    <em>explicitly</em>
+    characterizes gender differences in developmental trajectories of substance use across the critical period by modeling gender as a time-varying effect, which can be easily understandable to the scientific community as well as the general public through graphical presentation. Such trajectories are estimated through nonparametric regression functions that do not assume fixed shapes like conventional growth curves, and thus may reveal different timing of prevention and intervention for gender groups. Furthermore, this kind of model can be applied to not only multi-wave longitudinal studies, but also short-term studies that involve intensive data collection methods such as ecological momentary assessment or daily diaries, which are becoming more popular for studying patterns of health behaviors **citeref
+    <span>liu13,selya13,vasilenko14,yang15</span>
+    . Although these two types of studies are different in terms of the duration between time points, the numbers of time points and the richness of data in both studies tend to be beyond what traditional parametric methods can fully characterize.
+  </p>
+  <p>
+    This study proposes a time-varying effect model to (1) characterize gender-specific trajectories of health behaviors and (2) conduct hypothesis testing for gender differences. We demonstrate an application of using longitudinal data from a well-known prospective study on the development of substance use and abuse, the Michigan Longitudinal Study (MLS)**citeref
+    <span>zucker96</span>
+    , that is following high risk youth from childhood to adulthood. Another application of the model is demonstrated by using daily diary data from the National Survey of Midlife Development in the United States (MIDUS) **citeref
+    <span>ryff10</span>
+    . The MIDUS data were also used to design a simulation study evaluating the performance of the proposed method in terms of the accuracy of estimation of trajectories, type I error rate, and statistical power under different conditions.
+  </p>
+  <h1 id="the-model">The model</h1>
+  <p>
+    Let
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">Y(t_{ij})</annotation>
+      </semantics>
+    </math>
+    be the
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>j</mi>
+        <annotation encoding="application/x-tex">j</annotation>
+      </semantics>
+    </math>
+    -th observed outcome from the
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>i</mi>
+        <annotation encoding="application/x-tex">i</annotation>
+      </semantics>
+    </math>
+    -th subject at
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>i</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mo>,</mo>
+          <mi>N</mi>
+          <mo>;</mo>
+          <mi>j</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mi>.</mi>
+          <mo>,</mo>
+          <msub>
+            <mi>J</mi>
+            <mi>i</mi>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">t_{ij} (i=1,......,N; j=1,......,J_i)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>k</mi>
+        <annotation encoding="application/x-tex">k</annotation>
+      </semantics>
+    </math>
+    be the group (e.g. gender) that Subject
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>i</mi>
+        <annotation encoding="application/x-tex">i</annotation>
+      </semantics>
+    </math>
+    belongs to (
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>k</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <mn>2</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">k=1,2</annotation>
+      </semantics>
+    </math>
+    ). We consider the following nonparametric generalized mixed effect model for the measurement:
+  </p>
+  <p>
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mo>*</mo>
+          <mo>*</mo>
+          <mi>l</mi>
+          <mi>a</mi>
+          <mi>b</mi>
+          <mi>e</mi>
+          <mi>l</mi>
+          <mi>r</mi>
+          <mi>e</mi>
+          <mi>f</mi>
+          <mrow>
+            <mi>M</mi>
+            <mi>o</mi>
+            <mi>d</mi>
+            <mi>e</mi>
+            <mi>l</mi>
+          </mrow>
+          <mi>g</mi>
+          <mo stretchy="false" form="prefix">[</mo>
+          <mi>E</mi>
+          <mo stretchy="false" form="prefix">{</mo>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo stretchy="false" form="prefix">|</mo>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo stretchy="false" form="postfix">}</mo>
+          <mo stretchy="false" form="postfix">]</mo>
+          <mo>=</mo>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>+</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <msub>
+            <mi>I</mi>
+            <mrow>
+              <mo stretchy="false" form="prefix">{</mo>
+              <mi>k</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+              <mo stretchy="false" form="postfix">}</mo>
+            </mrow>
+          </msub>
+          <mo>+</mo>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo>,</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">
+          **labelref{Model}
+          g[E\{Y(t_{ij})|b_{i}\}]=\mu(t_{ij})+\beta(t_{ij})I_{\{k=1\}}+b_i,
+        </annotation>
+      </semantics>
+    </math>
+  </p>
+  <p>
+    where
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>g</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo>⋅</mo>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">g(\cdot)</annotation>
+      </semantics>
+    </math>
+    is a known link function under the framework of generalized linear models **citeref
+    <span>mccullagh89</span>
+    ;
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t_{ij})</annotation>
+      </semantics>
+    </math>
+    is the trajectory of the
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>k</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">k=2</annotation>
+      </semantics>
+    </math>
+    group;
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t_{ij})</annotation>
+      </semantics>
+    </math>
+    delineates the time-varying difference between the two groups; and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>b</mi>
+          <mi>i</mi>
+        </msub>
+        <annotation encoding="application/x-tex">b_i</annotation>
+      </semantics>
+    </math>
+    is a random individual effect modeling within-subject correlation and is assumed to follow a normal distribution with mean 0 and variance
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msup>
+          <mi>σ</mi>
+          <mn>2</mn>
+        </msup>
+        <annotation encoding="application/x-tex">\sigma^2</annotation>
+      </semantics>
+    </math>
+    . The distribution of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">Y(t_{ij})</annotation>
+      </semantics>
+    </math>
+    is thus completely characterized by
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t_{ij})</annotation>
+      </semantics>
+    </math>
+    ,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t_{ij})</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>b</mi>
+          <mi>i</mi>
+        </msub>
+        <annotation encoding="application/x-tex">b_i</annotation>
+      </semantics>
+    </math>
+    . One advantage of this model over fitting a separate nonparametric trajectory for each group is that
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t_{ij})</annotation>
+      </semantics>
+    </math>
+    can characterize the group difference across time explicitly.
+  </p>
+  <p>
+    The time-varying coefficients in Model (**refref
+    <span>Model</span>
+    ) can be represented using basis expansions. Thus, the nonparametric functions
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t_{ij})</annotation>
+      </semantics>
+    </math>
+    ,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t_{ij})</annotation>
+      </semantics>
+    </math>
+    are treated as linear combinations of several known parametric functions. We choose to use a spline basis to represent them as piecewise cubic functions. On each of several intervals defined by knots, the spline function is cubic. At a knot, the spline function is continuous and has continuous first and second derivatives, although the third derivative may be discontinuous at the knots. This allows any smooth shape to be approximated well if enough knots are used. Specifically, we use a B-spline basis **citeref
+    <span>deboor78</span>
+    , which can be automatically generated by most commonly used statistical software packages such as SAS and R, for a given set of knots. The basis functions are always nonnegative, and each is zero over most of the interval, so that each knot’s basis function is orthogonal to the other basis functions except for its closest knot neighbors. However, overfitting may still occur with a B-spline basis if too many knots are used. For simplicity, in this paper, we adopt the approach of
+    <strong>
+      **citeref
+      <span>shiyko12</span>
+    </strong>
+    that used a small number of equally spaced knots and treated the selection of the number of basis functions as a model selection problem.
+  </p>
+  <p>
+    After defining the basis functions using the B-spline formula, Equation (**refref
+    <span>Model</span>
+    ) can be written as a parametric form:
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>g</mi>
+          <mo stretchy="false" form="prefix">[</mo>
+          <mi>E</mi>
+          <mo stretchy="false" form="prefix">{</mo>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo stretchy="false" form="prefix">|</mo>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo stretchy="false" form="postfix">}</mo>
+          <mo stretchy="false" form="postfix">]</mo>
+          <mo>=</mo>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>p</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>P</mi>
+          </msubsup>
+          <msub>
+            <mi>ξ</mi>
+            <mi>p</mi>
+          </msub>
+          <msub>
+            <mi>ϕ</mi>
+            <mi>p</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>+</mo>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>q</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>Q</mi>
+          </msubsup>
+          <msub>
+            <mi>ζ</mi>
+            <mi>q</mi>
+          </msub>
+          <msub>
+            <mi>ψ</mi>
+            <mi>q</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <msub>
+            <mi>I</mi>
+            <mrow>
+              <mo stretchy="false" form="prefix">{</mo>
+              <mi>k</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+              <mo stretchy="false" form="postfix">}</mo>
+            </mrow>
+          </msub>
+          <mo>+</mo>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo>,</mo>
+          <mo>*</mo>
+          <mo>*</mo>
+          <mi>l</mi>
+          <mi>a</mi>
+          <mi>b</mi>
+          <mi>e</mi>
+          <mi>l</mi>
+          <mi>r</mi>
+          <mi>e</mi>
+          <mi>f</mi>
+          <mrow>
+            <mi>B</mi>
+            <mo>−</mo>
+            <mi>s</mi>
+            <mi>p</mi>
+            <mi>l</mi>
+            <mi>i</mi>
+            <mi>n</mi>
+            <mi>e</mi>
+          </mrow>
+        </mrow>
+        <annotation encoding="application/x-tex">
+          g[E\{Y(t_{ij})|b_{i}\}]=\Sigma_{p=1}^{P}\xi_{p}\phi_{p}(t_{ij})+\Sigma_{q=1}^{Q}\zeta_{q}\psi_{q}(t_{ij})I_{\{k=1\}}+b_i,
+          **labelref{B-spline}
+        </annotation>
+      </semantics>
+    </math>
+    where
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>ϕ</mi>
+            <mn>1</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>,</mo>
+          <mi>…</mi>
+          <mo>,</mo>
+          <msub>
+            <mi>ϕ</mi>
+            <mi>P</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\phi_{1}(t_{ij}),\ldots,\phi_{P}(t_{ij})</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>ψ</mi>
+            <mn>1</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>,</mo>
+          <mi>…</mi>
+          <mo>,</mo>
+          <msub>
+            <mi>ψ</mi>
+            <mi>Q</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\psi_{1}(t_{ij}),\ldots,\psi_{Q}(t_{ij})</annotation>
+      </semantics>
+    </math>
+    are known functions of time defined using the recursive B-spline formulas;
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>ξ</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>,</mo>
+          <mi>…</mi>
+          <mo>,</mo>
+          <msub>
+            <mi>ξ</mi>
+            <mi>P</mi>
+          </msub>
+        </mrow>
+        <annotation encoding="application/x-tex">\xi_1,\ldots,\xi_P</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>ζ</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>,</mo>
+          <mi>…</mi>
+          <mo>,</mo>
+          <msub>
+            <mi>ζ</mi>
+            <mi>Q</mi>
+          </msub>
+        </mrow>
+        <annotation encoding="application/x-tex">\zeta_1,\ldots,\zeta_Q</annotation>
+      </semantics>
+    </math>
+    are the corresponding regression coefficients. Equation (**refref
+    <span>B-spline</span>
+    ) is thus a generalized linear mixed model with
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>P</mi>
+          <mo>+</mo>
+          <mi>Q</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">P+Q+1</annotation>
+      </semantics>
+    </math>
+    parameters. For the binary case, the likelihood function for Subject
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>i</mi>
+        <annotation encoding="application/x-tex">i</annotation>
+      </semantics>
+    </math>
+    is
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>L</mi>
+            <mi>i</mi>
+          </msub>
+          <mo>=</mo>
+          <mo>∫</mo>
+          <munderover>
+            <mo>∏</mo>
+            <mrow>
+              <mi>j</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <msub>
+              <mi>J</mi>
+              <mi>i</mi>
+            </msub>
+          </munderover>
+          <msubsup>
+            <mi>p</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+            <mrow>
+              <mi>Y</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+            </mrow>
+          </msubsup>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mn>1</mn>
+          <mo>−</mo>
+          <msub>
+            <mi>p</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <msup>
+            <mo stretchy="false" form="postfix">)</mo>
+            <mrow>
+              <mo stretchy="false" form="prefix">(</mo>
+              <mn>1</mn>
+              <mo>−</mo>
+              <mi>Y</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+              <mo stretchy="false" form="postfix">)</mo>
+            </mrow>
+          </msup>
+          <mi>exp</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo>−</mo>
+          <msubsup>
+            <mi>b</mi>
+            <mi>i</mi>
+            <mn>2</mn>
+          </msubsup>
+          <mi>/</mi>
+          <mn>2</mn>
+          <msup>
+            <mi>σ</mi>
+            <mn>2</mn>
+          </msup>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mi>/</mi>
+          <mi>σ</mi>
+          <mspace width="0.167em" />
+          <mi>d</mi>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo>,</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">
+          L_{i}=\int\prod_{j=1}^{J_{i}}
+          p_{ij}^{Y(t_{ij})}(1-p_{ij})^{(1-Y(t_{ij}))}
+          \exp(-b_i^2/2\sigma^2)/\sigma\,d b_i,
+          %L_{i}=\int\prod_{j=1}^{J_{i}}P(Y_{ij}=0)^{I_{\{Y_{ij}=0\}}}P(Y_{ij}=1)^{1-I_{\{Y_{ij}=0\}}}dF(b_{i},\sigma^{2}),
+        </annotation>
+      </semantics>
+    </math>
+    where
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>p</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo>=</mo>
+          <mi>P</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mn>1</mn>
+          <mo stretchy="false" form="prefix">|</mo>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">p_{ij}=P(Y(t_{ij})=1|b_i)</annotation>
+      </semantics>
+    </math>
+    . For the continuous case, it is
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>L</mi>
+            <mi>i</mi>
+          </msub>
+          <mo>=</mo>
+          <mo>∫</mo>
+          <munderover>
+            <mo>∏</mo>
+            <mrow>
+              <mi>j</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <msub>
+              <mi>J</mi>
+              <mi>i</mi>
+            </msub>
+          </munderover>
+          <mi>f</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mi>exp</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo>−</mo>
+          <msubsup>
+            <mi>b</mi>
+            <mi>i</mi>
+            <mn>2</mn>
+          </msubsup>
+          <mi>/</mi>
+          <mn>2</mn>
+          <msup>
+            <mi>σ</mi>
+            <mn>2</mn>
+          </msup>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mi>/</mi>
+          <mi>σ</mi>
+          <mspace width="0.167em" />
+          <mi>d</mi>
+          <msub>
+            <mi>b</mi>
+            <mi>i</mi>
+          </msub>
+          <mo>,</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">L_{i}=\int\prod_{j=1}^{J_{i}}f(Y(t_{ij}))\exp(-b_i^2/2\sigma^2)/\sigma\,d
+          b_i,</annotation>
+      </semantics>
+    </math>
+    where
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>f</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">f(y(t_{ij}))</annotation>
+      </semantics>
+    </math>
+    stands for the density function of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>Y</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">Y(t_{ij})</annotation>
+      </semantics>
+    </math>
+    . The likelihood function for the entire sample is thus
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>L</mi>
+          <mo>=</mo>
+          <msubsup>
+            <mo>∏</mo>
+            <mrow>
+              <mi>i</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>N</mi>
+          </msubsup>
+          <msub>
+            <mi>L</mi>
+            <mi>i</mi>
+          </msub>
+        </mrow>
+        <annotation encoding="application/x-tex">L=\prod_{i=1}^{N}L_{i}</annotation>
+      </semantics>
+    </math>
+    . We use the R-package lme4 to derive the maximum likelihood estimates of the parameters.
+  </p>
+  <p>
+    In practice, researchers are interested in graphing gender-specific trajectories. Based on the fixed effects in Equation (**refref
+    <span>B-spline</span>
+    ), the trajectory for the
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>k</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">k=2</annotation>
+      </semantics>
+    </math>
+    group is
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mover>
+              <mi>f</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>2</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>p</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>P</mi>
+          </msubsup>
+          <msub>
+            <mi>ξ</mi>
+            <mi>p</mi>
+          </msub>
+          <msub>
+            <mi>ϕ</mi>
+            <mi>p</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\hat{f}_{2}(t_{ij})=\mu(t_{ij})=\Sigma_{p=1}^{P}\xi_{p}\phi_{p}(t_{ij})</annotation>
+      </semantics>
+    </math>
+    . For the
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>k</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">k=1</annotation>
+      </semantics>
+    </math>
+    group, the trajectory is
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mover>
+              <mi>f</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>1</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>+</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>p</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>P</mi>
+          </msubsup>
+          <msub>
+            <mi>ξ</mi>
+            <mi>p</mi>
+          </msub>
+          <msub>
+            <mi>ϕ</mi>
+            <mi>p</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>+</mo>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>q</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>Q</mi>
+          </msubsup>
+          <msub>
+            <mi>ζ</mi>
+            <mi>q</mi>
+          </msub>
+          <msub>
+            <mi>ψ</mi>
+            <mi>q</mi>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\hat{f}_{1}(t_{ij})=\mu(t_{ij})+\beta(t_{ij})=\Sigma_{p=1}^{P}\xi_{p}\phi_{p}(t_{ij})+\Sigma_{q=1}^{Q}\zeta_{q}\psi_{q}(t_{ij})</annotation>
+      </semantics>
+    </math>
+    . The delta method can be used to estimate the variance of the estimated functions of these two groups at any time
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>t</mi>
+        <annotation encoding="application/x-tex">t</annotation>
+      </semantics>
+    </math>
+    . In this way, we can obtain the pointwise confidence intervals which can be plotted along with the estimated trajectories.
+  </p>
+  <p>Researchers are also interested in testing whether there exists any gender difference. We formulate this hypothesis testing problem as follows:</p>
+  <p>
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>H</mi>
+            <mn>0</mn>
+          </msub>
+          <mo>:</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mn>0</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">H_{0}: \beta(t)=0</annotation>
+      </semantics>
+    </math>
+    v.s.
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>H</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>:</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>≠</mo>
+          <mn>0</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">H_{1}: \beta(t)\neq0</annotation>
+      </semantics>
+    </math>
+  </p>
+  <p>
+    Under
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>0</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_{0}</annotation>
+      </semantics>
+    </math>
+    , the two groups have the same trajectory (i.e., there is no group difference). Following the method described above, we can estimate
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    under
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>0</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_{0}</annotation>
+      </semantics>
+    </math>
+    , as well as
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    under
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>1</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_{1}</annotation>
+      </semantics>
+    </math>
+    . We can further evaluate the log-likelihood functions under
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>0</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_{0}</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>1</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_{1}</annotation>
+      </semantics>
+    </math>
+    denoted by
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>ℓ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>H</mi>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\ell(H_{0})</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>ℓ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>H</mi>
+            <mn>1</mn>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\ell(H_{1})</annotation>
+      </semantics>
+    </math>
+    , respectively. The generalized likelihood ratio test(GLRT) for the hypothesis can thus be defined by
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>T</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+          <mo stretchy="false" form="prefix">{</mo>
+          <mi>ℓ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>H</mi>
+            <mn>1</mn>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>−</mo>
+          <mi>ℓ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>H</mi>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo stretchy="false" form="postfix">}</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">T=2\{\ell(H_{1})-\ell(H_{0})\}</annotation>
+      </semantics>
+    </math>
+    . Following **citeref
+    <span>cai00</span>
+    , we can conduct bootstrap sampling to estimate the p-value for the GLRT.
+  </p>
+  <h1 id="the-motivating-examples">The motivating examples</h1>
+  <p>We use two well-known studies in the field of health behavior research to demonstrate that the proposed model can be applied to not only multi-wave longitudinal studies, but also short-term studies that involve intensive data collection such as daily process studies.</p>
+  <table>
+    <caption>MISE under different sample sizes, numbers of time points, proportions of zeros, and gender ratios.</caption>
+    <tbody>
+      <tr class="odd">
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+      </tr>
+      <tr class="even">
+        <td align="center" />
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>8</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=8</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>16</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=16</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>8</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=8</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>16</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=16</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>8</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=8</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>16</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=16</annotation>
+            </semantics>
+          </math>
+        </td>
+      </tr>
+      <tr class="odd">
+        <td align="center">Proportion</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+      </tr>
+      <tr class="even">
+        <td align="center">30%</td>
+        <td align="center">0.387(0.273)</td>
+        <td align="center">0.179(0.112)</td>
+        <td align="center">0.171(0.106)</td>
+        <td align="center">0.086(0.048)</td>
+        <td align="center">0.082(0.047)</td>
+        <td align="center">0.044(0.023)</td>
+      </tr>
+      <tr class="odd">
+        <td align="center">50%</td>
+        <td align="center">0.287(0.183)</td>
+        <td align="center">0.148(0.077)</td>
+        <td align="center">0.140(0.080)</td>
+        <td align="center">0.078(0.043)</td>
+        <td align="center">0.074(0.038)</td>
+        <td align="center">0.042(0.023)</td>
+      </tr>
+      <tr class="even">
+        <td align="center">70%</td>
+        <td align="center">0.557(0.444)</td>
+        <td align="center">0.306(0.426)</td>
+        <td align="center">0.294(0.323)</td>
+        <td align="center">0.140(0.135)</td>
+        <td align="center">0.156(0.176)</td>
+        <td align="center">0.071(0.051)</td>
+      </tr>
+      <tr class="odd">
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+      </tr>
+      <tr class="even">
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+        <td align="center" />
+      </tr>
+      <tr class="odd">
+        <td align="center" />
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>8</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=8</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>16</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=16</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>8</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=8</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>16</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=16</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>8</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=8</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>J</mi>
+                <mo>=</mo>
+                <mn>16</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">J=16</annotation>
+            </semantics>
+          </math>
+        </td>
+      </tr>
+      <tr class="even">
+        <td align="center">Proportion</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+        <td align="center">Mean(SD)</td>
+      </tr>
+      <tr class="odd">
+        <td align="center">30%</td>
+        <td align="center">0.417(0.236)</td>
+        <td align="center">0.260(0.401)</td>
+        <td align="center">0.231(0.188)</td>
+        <td align="center">0.104(0.067)</td>
+        <td align="center">0.099(0.059)</td>
+        <td align="center">0.050(0.028)</td>
+      </tr>
+      <tr class="even">
+        <td align="center">50%</td>
+        <td align="center">0.319(0.179)</td>
+        <td align="center">0.151(0.081)</td>
+        <td align="center">0.153(0.086)</td>
+        <td align="center">0.078(0.039)</td>
+        <td align="center">0.077(0.039)</td>
+        <td align="center">0.042(0.022)</td>
+      </tr>
+      <tr class="odd">
+        <td align="center">70%</td>
+        <td align="center">0.453(0.263)</td>
+        <td align="center">0.266(0.241)</td>
+        <td align="center">0.288(0.269)</td>
+        <td align="center">0.131(0.102)</td>
+        <td align="center">0.126(0.095)</td>
+        <td align="center">0.063(0.041)</td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <caption>Type I error rates under different sample sizes and numbers of time points.</caption>
+    <tbody>
+      <tr class="odd">
+        <td align="center" />
+        <td align="center">J=8</td>
+        <td align="center">J=16</td>
+        <td align="center">J=8</td>
+        <td align="center">J=16</td>
+        <td align="center">J=8</td>
+        <td align="center">J=16</td>
+      </tr>
+      <tr class="even">
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>α</mi>
+                <mo>=</mo>
+                <mn>0.01</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">\alpha=0.01</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">0.011</td>
+        <td align="center">0.008</td>
+        <td align="center">0.01</td>
+        <td align="center">0.006</td>
+        <td align="center">0.006</td>
+        <td align="center">0.016</td>
+      </tr>
+      <tr class="odd">
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>α</mi>
+                <mo>=</mo>
+                <mn>0.05</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">\alpha=0.05</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">0.053</td>
+        <td align="center">0.046</td>
+        <td align="center">0.034</td>
+        <td align="center">0.059</td>
+        <td align="center">0.057</td>
+        <td align="center">0.048</td>
+      </tr>
+      <tr class="even">
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>α</mi>
+                <mo>=</mo>
+                <mn>0.10</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">\alpha=0.10</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">0.114</td>
+        <td align="center">0.088</td>
+        <td align="center">0.097</td>
+        <td align="center">0.108</td>
+        <td align="center">0.107</td>
+        <td align="center">0.108</td>
+      </tr>
+      <tr class="odd">
+        <td align="center">
+          <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+            <semantics>
+              <mrow>
+                <mi>α</mi>
+                <mo>=</mo>
+                <mn>0.25</mn>
+              </mrow>
+              <annotation encoding="application/x-tex">\alpha=0.25</annotation>
+            </semantics>
+          </math>
+        </td>
+        <td align="center">0.286</td>
+        <td align="center">0.26</td>
+        <td align="center">0.261</td>
+        <td align="center">0.231</td>
+        <td align="center">0.266</td>
+        <td align="center">0.234</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="figure">
+    <embed src="images/national_and_mls.pdf" />
+    <p class="caption">Gender-specific trajectories based on the motivating examples.</p>
+  </div>
+  <p>
+    <embed src="images/n=100_j=8.pdf" title="fig:" style="width:45.0%" />
+    <embed src="images/n=100_j=16.pdf" title="fig:" style="width:45.0%" />
+    <embed src="images/n=200_j=8.pdf" title="fig:" style="width:45.0%" />
+    <embed src="images/n=200_j=16.pdf" title="fig:" style="width:45.0%" />
+    <embed src="images/n=400_j=8.pdf" title="fig:" style="width:45.0%" />
+    <embed src="images/n=400_j=16.pdf" title="fig:" style="width:45.0%" />
+  </p>
+  <h2 id="the-michigan-longitudinal-study-mls">The Michigan Longitudinal Study (MLS)</h2>
+  <p>
+    The MLS is an ongoing prospective study of people at high risk for substance abuse and disorder **citeref
+    <span>zucker96</span>
+    . It is the developmentally earliest study currently extant and is also one of the longest running projects in the field of substance abuse. We chose to use data from the MLS to demonstrate the application of the proposed method, because the study is highly influential and the features of the data are typical in the field. Thus, our methodological work may have high applicability to the field. More importantly, these rich longitudinal data provide a rare opportunity for us to examine gender differences in alcohol use developmentally. Such investigation could shed some light on future prevention and intervention work.
+  </p>
+  <p>The MLS recruited participant families using fathers’ drunk driving conviction records and door-to-door community canvassing in a four-county area in mid-Michigan. All participants received extensive in-home assessments of their substance use and related risk factors and consequences at baseline, and thereafter at 3-year intervals. The children of participant families were followed from early childhood to adulthood. During the critical developmental period of alcohol use onset and peak use (early adolescence to young adulthood), these children were assessed annually in order to measure drinking onset and patterns more accurately. In this study, we use longitudinal data (ages 12 to 26) from a sample of 699 children (70.2% males) for analysis. The maximum number of time points available is 15, although some participants may skip certain time points.</p>
+  <p>
+    Our investigation aims to (1) characterize gender-specific alcohol use behavior developmentally from early adolescence to young adulthood, and (2) test gender differences in developmental trajectories. In our analysis, the outcome at each time point is a composite measure of alcohol consumption which is the product of the number of drinking days in past month and the average number of drinks per drinking day. Gender is treated as a time-varying effect through
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    in Model (**refref
+    <span>Model</span>
+    ); the link function
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>g</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo>⋅</mo>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">g(\cdot)</annotation>
+      </semantics>
+    </math>
+    is the identity. Using AIC and BIC, we choose 5 knots to approximate the trajectories. Panels (a) and (b) in Figure 1 show the developmental trajectories of females and males, respectively. Using the asymptotic normality of the resulting estimate, the asymptotic pointwise confidence intervals (CI) of the trajectories of group 1 and group 2 (i.e.,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>+</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)+\beta(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    ) at time
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>t</mi>
+          <mrow>
+            <mi>i</mi>
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <annotation encoding="application/x-tex">t_{ij}</annotation>
+      </semantics>
+    </math>
+    are
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mover>
+            <mi>μ</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>+</mo>
+          <mover>
+            <mi>β</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>±</mo>
+          <msub>
+            <mi>z</mi>
+            <mfrac>
+              <mi>α</mi>
+              <mn>2</mn>
+            </mfrac>
+          </msub>
+          <msqrt>
+            <mrow>
+              <mo stretchy="false" form="prefix">(</mo>
+              <mi>Φ</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+              <mo>,</mo>
+              <mi>Ψ</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+              <mo stretchy="false" form="postfix">)</mo>
+              <msub>
+                <mi>Σ</mi>
+                <mrow>
+                  <mi>ξ</mi>
+                  <mo>,</mo>
+                  <mi>ζ</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="prefix">(</mo>
+              <mi>Φ</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+              <mo>,</mo>
+              <mi>Ψ</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+              <msup>
+                <mo stretchy="false" form="postfix">)</mo>
+                <mi>T</mi>
+              </msup>
+            </mrow>
+          </msqrt>
+        </mrow>
+        <annotation encoding="application/x-tex">
+          \hat{\mu}(t_{ij}) + \hat{\beta}(t_{ij})\pm
+          z_{\frac{\alpha}{2}}\sqrt{(\Phi(t_{ij}),\Psi(t_{ij}))\Sigma_{\xi,\zeta}(\Phi(t_{ij}),\Psi(t_{ij}))^{T}}
+        </annotation>
+      </semantics>
+    </math>
+    and
+    <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mover>
+            <mi>μ</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>±</mo>
+          <msub>
+            <mi>z</mi>
+            <mfrac>
+              <mi>α</mi>
+              <mn>2</mn>
+            </mfrac>
+          </msub>
+          <msqrt>
+            <mrow>
+              <mi>Φ</mi>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+              <msub>
+                <mi>Σ</mi>
+                <mi>ξ</mi>
+              </msub>
+              <msup>
+                <mi>Φ</mi>
+                <mi>T</mi>
+              </msup>
+              <mo stretchy="false" form="prefix">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow>
+                  <mi>i</mi>
+                  <mi>j</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false" form="postfix">)</mo>
+            </mrow>
+          </msqrt>
+          <mo>,</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">
+          \hat{\mu}(t_{ij})\pm
+          z_{\frac{\alpha}{2}}\sqrt{\Phi(t_{ij})\Sigma_{\xi}\Phi^{T}(t_{ij})},
+        </annotation>
+      </semantics>
+    </math>
+    respectively, where
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>Σ</mi>
+          <mi>ξ</mi>
+        </msub>
+        <annotation encoding="application/x-tex">\Sigma_{\xi}</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>Σ</mi>
+          <mrow>
+            <mi>ξ</mi>
+            <mo>,</mo>
+            <mi>ζ</mi>
+          </mrow>
+        </msub>
+        <annotation encoding="application/x-tex">\Sigma_{\xi,\zeta}</annotation>
+      </semantics>
+    </math>
+    are the covariance matrices of the estimates of the covariates;
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>Φ</mi>
+        <annotation encoding="application/x-tex">\Phi</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>Ψ</mi>
+        <annotation encoding="application/x-tex">\Psi</annotation>
+      </semantics>
+    </math>
+    are the Bspline basis used to fit the functions
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    , respectively. The two gender groups do not differ until middle adolescence. Although alcohol consumption for both groups increases from middle adolescence to young adulthood, the rate of change is much higher among males. Furthermore, the decreasing trend for both groups after age 24 probably reflects that people tend to “mature out&quot; of heavy drinking due to family or job responsibilities. Moreover, the result of the generalized likelihood ratio test indicates that there are significant gender differences with
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>T</mi>
+          <mo>=</mo>
+          <mn>161.29</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">T=161.29</annotation>
+      </semantics>
+    </math>
+    and the corresponding p-value estimated to be around
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>0</mn>
+        <annotation encoding="application/x-tex">0</annotation>
+      </semantics>
+    </math>
+    by bootstrap sampling.
+  </p>
+  <h2 id="the-national-survey-of-midlife-development-in-the-united-states-midus-ii">The National Survey of Midlife Development in the United States (MIDUS II)</h2>
+  <p>
+    The Daily Stress Project of MIDUS II was designed to examine how sociodemographic factors, health status, personality characteristics, and genetic endowment modify patterns of change in exposure to day-to-day life stressors as well as physical and emotional reactivity to these stressors **citeref
+    <span>ryff10</span>
+    . The survey data were collected from
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>2</mn>
+          <mo>,</mo>
+          <mn>022</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">2,022</annotation>
+      </semantics>
+    </math>
+    noninstitutionalized adults aged 35 to 85 in the United States from 2004 to 2009. Participants completed daily phone surveys on stressors, physical symptoms, and positive/negative affect for 8 consecutive days.
+  </p>
+  <p>
+    Although daily process methods provide prospective data for examining the dynamic associations between health behaviors, they unavoidably involve self-monitoring of the target behavior, which is an active component of some cognitive-behavioral interventions **citeref
+    <span>simpson05</span>
+    . The potential
+    <em>measurement reactivity</em>
+    (defined as changing the target behavior due to self-awareness) is undesirable for those studies that aim to investigate the association between the target behavior and its precursor or consequence. On the other hand, for those applications aiming to facilitate behavior changes, such an effect can be used to boost or extend intervention effects **citeref
+    <span>tucker12</span>
+    . Thus, verifying measurement reactivity is an important research question, especially given that existing empirical investigations are few and have produced mixed results **citeref
+    <span>barta12,stritzke05</span>
+    .
+  </p>
+  <p>
+    Our investigation aims to (1) characterize the gender-specific patterns of change in self-reported physical symptoms during the 8 days of assessment, and (2) test gender differences in patterns of change. In our analysis, the outcome at each time point is a binary variable for any physical symptoms reported in a day (
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>1</mn>
+          <mo>=</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">1=</annotation>
+      </semantics>
+    </math>
+    yes;
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>0</mn>
+          <mo>=</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">0=</annotation>
+      </semantics>
+    </math>
+    no). Gender is treated as a time-varying effect through
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    in Model (**refref
+    <span>Model</span>
+    ); the link function
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>g</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo>⋅</mo>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">g(\cdot)</annotation>
+      </semantics>
+    </math>
+    is the logit. Using AIC and BIC, we choose 3 knots to approximate the patterns of change. Panels (c) and (d) in Figure 1 show the patterns of change in the odds of reporting any physical symptoms for females and males, respectively. Females tend to have much greater odds of reporting physical symptoms, particularly in the first few days. Further, measurement reactivity is evident in both gender groups in the beginning of the assessment period. Moreover, the result of the generalized likelihood ratio test indicates that there are significant gender differences with
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>T</mi>
+          <mo>=</mo>
+          <mn>50.42</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">T=50.42</annotation>
+      </semantics>
+    </math>
+    and the corresponding p-value estimated to be about
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>0</mn>
+        <annotation encoding="application/x-tex">0</annotation>
+      </semantics>
+    </math>
+    by bootstrap sampling.
+  </p>
+  <h1 id="simulation-study">Simulation study</h1>
+  <p>
+    In this section, we examine the performance of the proposed method under different situations. The design of the simulation is based on the feature of the MIDUS data demonstrated in the motivating examples section. The response is a binary variable which follows Model (**refref
+    <span>Model</span>
+    ) with the link function
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>g</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo>⋅</mo>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">g(\cdot)</annotation>
+      </semantics>
+    </math>
+    being the logit function and the group indicator
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>k</mi>
+          <mo>=</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">k=1</annotation>
+      </semantics>
+    </math>
+    corresponding to females. We generate the response
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>Y</mi>
+        <annotation encoding="application/x-tex">Y</annotation>
+      </semantics>
+    </math>
+    using the estimated functions of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    ,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>b</mi>
+          <mi>i</mi>
+        </msub>
+        <annotation encoding="application/x-tex">b_i</annotation>
+      </semantics>
+    </math>
+    from the fitted model of these national data. We manipulate
+    <strong>four</strong>
+    factors: (i) the sample size:
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>N</mi>
+          <mo>=</mo>
+          <mn>100</mn>
+          <mo>,</mo>
+          <mn>200</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">N=100, 200</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>400</mn>
+        <annotation encoding="application/x-tex">400</annotation>
+      </semantics>
+    </math>
+    ; (ii) the number of time points:
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>J</mi>
+          <mo>=</mo>
+          <mn>8</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">J=8</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>16</mn>
+        <annotation encoding="application/x-tex">16</annotation>
+      </semantics>
+    </math>
+    ; (iii) the proportion of zeros in the response
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>Y</mi>
+        <annotation encoding="application/x-tex">Y</annotation>
+      </semantics>
+    </math>
+    from all participants across all waves: 30%, 50%, and 70%; and (iv) the gender ratio:
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>1</mn>
+          <mo>:</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">1:1</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>3</mn>
+          <mo>:</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">3:1</annotation>
+      </semantics>
+    </math>
+    . We expect the performance improves with the sample size and the number of time points. We also expect that the proposed method may perform better in the setting with
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>50</mn>
+          <mi>%</mi>
+        </mrow>
+        <annotation encoding="application/x-tex">50\%</annotation>
+      </semantics>
+    </math>
+    zeros than in the other settings, because the former tends to have greater Fisher information. Furthermore, we expect the performance to be better when the sample sizes of the two gender groups are about the same.
+  </p>
+  <h2 id="the-accuracy-of-estimation-of-trajectory-functions">The Accuracy of Estimation of Trajectory Functions</h2>
+  <p>
+    We evaluate the performance of the proposed method concerning the accuracy of the estimation of trajectory functions,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    , under different combinations of the sample size, the number of time points and the proportion of zeros. It is straightforward to manipulate the former two factors. However, the proportion of zeros in the response is manipulated indirectly by altering
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    . Let
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mover>
+              <mi>μ</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\hat{\mu}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mover>
+              <mi>β</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\hat{\beta}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    be the trajectory functions in the model fitted on the national data. We obtain three different proportions of zeros,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>30</mn>
+          <mi>%</mi>
+        </mrow>
+        <annotation encoding="application/x-tex">30\%</annotation>
+      </semantics>
+    </math>
+    ,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>50</mn>
+          <mi>%</mi>
+        </mrow>
+        <annotation encoding="application/x-tex">50\%</annotation>
+      </semantics>
+    </math>
+    , and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>70</mn>
+          <mi>%</mi>
+        </mrow>
+        <annotation encoding="application/x-tex">70\%</annotation>
+      </semantics>
+    </math>
+    , through the following trajectory functions, respectively: (1)
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <msub>
+            <mover>
+              <mi>μ</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)=\hat{\mu}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <msub>
+            <mover>
+              <mi>β</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)=\hat{\beta}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    ; (2)
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <msub>
+            <mover>
+              <mi>μ</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)=\hat{\mu}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mo>−</mo>
+          <mn>2</mn>
+          <msub>
+            <mover>
+              <mi>β</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)=-2\hat{\beta}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    ; and (3)
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mo>−</mo>
+          <mn>1.8</mn>
+          <msub>
+            <mover>
+              <mi>μ</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)=-1.8\hat{\mu}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <msub>
+            <mover>
+              <mi>β</mi>
+              <mo accent="true">^</mo>
+            </mover>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)=\hat{\beta}_{0}(t)</annotation>
+      </semantics>
+    </math>
+    . Please note that the function
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\mu(t)</annotation>
+      </semantics>
+    </math>
+    here refers to the one defined in Equation (1) rather than the mean of the response
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>Y</mi>
+        <annotation encoding="application/x-tex">Y</annotation>
+      </semantics>
+    </math>
+    . The criterion for evaluating the accuracy of estimation of trajectory functions is the mean integrated squared error (MISE):
+  </p>
+  <p>
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>M</mi>
+          <mi>I</mi>
+          <mi>S</mi>
+          <mi>E</mi>
+          <mo>=</mo>
+          <mfrac>
+            <mn>1</mn>
+            <mrow>
+              <mi>N</mi>
+              <mi>J</mi>
+            </mrow>
+          </mfrac>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>i</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>N</mi>
+          </msubsup>
+          <msubsup>
+            <mi>Σ</mi>
+            <mrow>
+              <mi>j</mi>
+              <mo>=</mo>
+              <mn>1</mn>
+            </mrow>
+            <mi>J</mi>
+          </msubsup>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mover>
+            <mi>μ</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>−</mo>
+          <mi>μ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <msup>
+            <mo stretchy="false" form="postfix">)</mo>
+            <mn>2</mn>
+          </msup>
+          <mo>+</mo>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mover>
+            <mi>β</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>−</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>t</mi>
+            <mrow>
+              <mi>i</mi>
+              <mi>j</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <msup>
+            <mo stretchy="false" form="postfix">)</mo>
+            <mn>2</mn>
+          </msup>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mi>.</mi>
+        </mrow>
+        <annotation encoding="application/x-tex">MISE=\frac{1}{NJ}\Sigma_{i=1}^{N}\Sigma_{j=1}^{J}((\hat{\mu}(t_{ij})-\mu(t_{ij}))^{2}+(\hat{\beta}(t_{ij})-\beta(t_{ij}))^{2}).</annotation>
+      </semantics>
+    </math>
+  </p>
+  <p>
+    Table 1 shows the MISE and its empirical standard error under different combinations of the three factors. Based on the table, the accuracy of the proposed method improves as the sample size and the number of time points increase. For example, when
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>N</mi>
+          <mo>=</mo>
+          <mn>100</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">N=100</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>J</mi>
+          <mo>=</mo>
+          <mn>8</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">J=8</annotation>
+      </semantics>
+    </math>
+    , the MISE and the corresponding standard error are larger in comparison to other settings with the same proportion of zeros in the responses. Controlling for the effects of sample size and number of time points, when the proportion of zeros increases from 30% to 50%, the performance of our method does not change much as demonstrated by the similar MISEs and standard errors. However, when the proportion of zeros increases from 50% to 70%, the performance of our method becomes worse based on the larger MISEs and standard errors. Furthermore, the performance of the method tends to be better when the gender ratio is
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>1</mn>
+          <mo>:</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">1:1</annotation>
+      </semantics>
+    </math>
+    (like the national data example), in comparison to the setting when the gender ratio is
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mn>3</mn>
+          <mo>:</mo>
+          <mn>1</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">3:1</annotation>
+      </semantics>
+    </math>
+    (like the MLS data example). However, the impact of gender ratio becomes unimportant when the proportion of zeros is 70% and the performance is poor anyway.
+  </p>
+  <h2 id="the-type-i-error-rate-and-power-of-the-hypothesis-testing">The Type I Error Rate and Power of the Hypothesis Testing</h2>
+  <p>
+    We also evaluate the performance of the hypothesis testing in terms of the type I error rate and power. Our simulation involves the setting of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>H</mi>
+            <mn>0</mn>
+          </msub>
+          <mo>:</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mn>0</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">H_{0}: \beta(t)=0</annotation>
+      </semantics>
+    </math>
+    versus
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>H</mi>
+            <mn>1</mn>
+          </msub>
+          <mo>:</mo>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>=</mo>
+          <mi>δ</mi>
+          <mover>
+            <mi>β</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">
+          H_{1}:
+          \beta(t)=\delta\hat{\beta}(t)
+        </annotation>
+      </semantics>
+    </math>
+    , where
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mover>
+            <mi>β</mi>
+            <mo accent="true">^</mo>
+          </mover>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\hat{\beta}(t)</annotation>
+      </semantics>
+    </math>
+    is the trajectory function in the model fitted on the national data; and the value of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    is manipulated to reflect different levels of deviation from
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>0</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_0</annotation>
+      </semantics>
+    </math>
+    . In this part of the simulation study, we only manipulate the sample size and the number of time points because manipulating the proportion of zeros would require altering
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>β</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mi>t</mi>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">\beta(t)</annotation>
+      </semantics>
+    </math>
+    . We also adopt the gender ratio in the national data when generating the gender of the subjects in the simulation samples. Because the proposed model is nonparametric, we can only derive the empirical distribution of the test statistics
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>T</mi>
+          <mo>=</mo>
+          <mn>2</mn>
+          <mo stretchy="false" form="prefix">{</mo>
+          <mi>ℓ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>H</mi>
+            <mn>1</mn>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo>−</mo>
+          <mi>ℓ</mi>
+          <mo stretchy="false" form="prefix">(</mo>
+          <msub>
+            <mi>H</mi>
+            <mn>0</mn>
+          </msub>
+          <mo stretchy="false" form="postfix">)</mo>
+          <mo stretchy="false" form="postfix">}</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">T=2\{\ell(H_{1})-\ell(H_{0})\}</annotation>
+      </semantics>
+    </math>
+    through simulation. Under each combination of the sample size and the number of time points, we generate
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>10000</mn>
+        <annotation encoding="application/x-tex">10000</annotation>
+      </semantics>
+    </math>
+    data sets under
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <msub>
+          <mi>H</mi>
+          <mn>0</mn>
+        </msub>
+        <annotation encoding="application/x-tex">H_0</annotation>
+      </semantics>
+    </math>
+    and then conduct the hypothesis testing which results in
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>10000</mn>
+        <annotation encoding="application/x-tex">10000</annotation>
+      </semantics>
+    </math>
+    values of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>T</mi>
+        <annotation encoding="application/x-tex">T</annotation>
+      </semantics>
+    </math>
+    . The critical values of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <msub>
+            <mi>T</mi>
+            <mn>0.01</mn>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>T</mi>
+            <mn>0.05</mn>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>T</mi>
+            <mn>0.10</mn>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>T</mi>
+            <mn>0.25</mn>
+          </msub>
+        </mrow>
+        <annotation encoding="application/x-tex">T_{0.01}, T_{0.05}, T_{0.10}, T_{0.25}</annotation>
+      </semantics>
+    </math>
+    are thus the
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>99</mn>
+        <annotation encoding="application/x-tex">99</annotation>
+      </semantics>
+    </math>
+    th,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>95</mn>
+        <annotation encoding="application/x-tex">95</annotation>
+      </semantics>
+    </math>
+    th,
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>90</mn>
+        <annotation encoding="application/x-tex">90</annotation>
+      </semantics>
+    </math>
+    th, and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>75</mn>
+        <annotation encoding="application/x-tex">75</annotation>
+      </semantics>
+    </math>
+    th percentiles from this empirical distribution of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>T</mi>
+        <annotation encoding="application/x-tex">T</annotation>
+      </semantics>
+    </math>
+    . After obtaining the critical values under each situation, we investigate the effect of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    on the power of the test by taking a grid of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    over
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mo stretchy="false" form="prefix">(</mo>
+          <mn>0</mn>
+          <mo>,</mo>
+          <mn>2</mn>
+          <mo stretchy="false" form="postfix">)</mo>
+        </mrow>
+        <annotation encoding="application/x-tex">(0,2)</annotation>
+      </semantics>
+    </math>
+    . Under each situation, we generate
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mn>1000</mn>
+        <annotation encoding="application/x-tex">1000</annotation>
+      </semantics>
+    </math>
+    data sets for each value of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    and conduct the hypothesis testing on the data sets (using the 4 critical values) to examine the type I error rate and the power corresponding to the 4 values of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>α</mi>
+        <annotation encoding="application/x-tex">\alpha</annotation>
+      </semantics>
+    </math>
+    (i.e. significance levels). Table 2 shows the type I error rates (i.e. the values of power when
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mrow>
+          <mi>δ</mi>
+          <mo>=</mo>
+          <mn>0</mn>
+        </mrow>
+        <annotation encoding="application/x-tex">\delta=0</annotation>
+      </semantics>
+    </math>
+    ), which are close to their corresponding significance levels under all settings. Figure 2 depicts the power as a function of
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    and
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>α</mi>
+        <annotation encoding="application/x-tex">\alpha</annotation>
+      </semantics>
+    </math>
+    under different situations. As demonstrated by the figure, the power increases as
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    increases and the value of power is 1 when
+    <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML">
+      <semantics>
+        <mi>δ</mi>
+        <annotation encoding="application/x-tex">\delta</annotation>
+      </semantics>
+    </math>
+    is greater than 1.5. In addition, the rate of this increasing trend is higher when the sample size and the number of time points are larger.
+  </p>
+  <h1 id="discussion">Discussion</h1>
+  <p>This study proposes a time-varying effect model that can be used to characterize gender-specific trajectories of health behaviors and conduct hypothesis testing for gender differences. The major strengths of the model include (1) treating gender differences as a time-varying effect; and (2) modeling time-varying effects with flexible smooth functions derived from empirical data. The proposed model can be applied to not only multi-wave longitudinal studies like the MLS, but also short-term studies that involve intensive data collection such as the daily diary data from the MIDUS. Furthermore, the design of our simulation study is unique because it simulates the features of the MIDUS data so that the results can be generalizable to the field of health behavior research.</p>
+  <p>The simulation study shows that the accuracy of estimation of trajectory functions improves as the sample size and the number of time points increase. Controlling for the effects of these two factors, the proportion of zeros only has a considerable negative effect on accuracy when it increases from 50% to 70%. In terms of the performance of the hypothesis testing, the type I error rates are close to their corresponding significance levels under all combinations of sample size and number of time points. Furthermore, the power increases as the alternative hypothesis deviates more from the null hypothesis and the rate of this increasing trend is higher when the sample size and the number of time points are larger.</p>
+  <p>Although the methodology proposed in this study was motivated by our research interest in gender differences, it can be applied to a variety of contexts that involve the comparison between two trajectories or change patterns. For example, the model can be used to characterize the developmental trajectory of substance use among children of alcoholic (COA) and compare it with the trajectory of non-COA. Future work may be needed to extend the methodology to handle the settings with more than two groups such as studying racial differences.</p>
+  <p>The proposed model accounts for subject-specific effects only through a random intercept. Thus, the outcomes of the same subject at any two time points are treated as equally correlated regardless of the size of the time difference between the time points, and this may not be realistic in some settings. Popular longitudinal models assuming autocorrelation for the residuals (such as AR-1), on the other hand, treat the lag between each consecutive pair of measurements as equivalent. This assumption may not apply to those settings that involve random or inconsistent measurement times. A more straightforward way to incorporate longitudinal correlation, therefore, is to add a random subject-level slope to the right-hand side of Model (1). Further research is, thus, warranted regarding how best to implement more complex random effect structures while still allowing the time-varying effects to be easily estimated and interpreted with standard software.</p>
+  <p>
+    In spite of the fact that the proposed model can handle a variety of measurement scales under the framework of generalized linear models such as continuous and binary outcomes (as demonstrated in our motivating examples), future work is needed to extend the model to deal with other scales that are also common in the health behavior field including ordinal outcomes (e.g. **citeref
+    <span>dziak14</span>
+    ) and zero-inflated counts (e.g. **citeref
+    <span>buu11,buu12</span>
+    ). Furthermore, our work in this paper focuses on the setting that involves a single health behavior. Future studies may consider modeling
+    <em>multiple</em>
+    health behaviors that tend to co-occur such as substance use behaviors, violence behaviors, and HIV sexual risk behaviors.
+  </p>
+</body>

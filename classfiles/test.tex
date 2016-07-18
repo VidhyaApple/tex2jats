@@ -1,0 +1,75 @@
+\begin{enumerate}
+\item \textbf{Multiplication of two numbers with the same base and different exponents.} Add the exponents together:\vspace*{-3pt}
+\begin{equation*}
+x^a x^b=x^{a+b}.
+\end{equation*}
+\item \textbf{Division of two numbers with the same base and different exponents.} Subtract the bottom exponent from the top exponent:
+\begin{equation*}
+\frac{x^a}{x^b}=x^{a-b}.
+\end{equation*}
+\item \textbf{Negative exponents.}  Take the reciprocal, but change the negative exponent to a positive one:\vspace*{-3pt}
+\begin{equation*}
+x^{-a}=\frac{1}{x^a}.
+\end{equation*}
+\item \textbf{Exponents of 0.}  $0^0$ is undefined, but taking any other number to the zero power produces 1:\vspace*{-3pt}
+\begin{equation*}
+x^0=1 \text{   for any   }x\neq 0.
+\end{equation*}
+\item \textbf{Exponents of 1.}  Taking the first power of any number returns the number:
+\begin{equation*}
+x^1=x\text{   for all   }x.
+\end{equation*}
+\item \textbf{Multiple layers of exponents.}  Multiply the different layers together:
+\begin{equation*}
+(x^a)^b=x^{ab}.
+\end{equation*}
+\item \textbf{Multiplication of numbers with different bases and the same exponent.}  The product of the different bases can be set to the common exponent:
+\begin{equation*}
+x^ay^a=(xy)^a.
+\end{equation*}
+\item \textbf{Division of numbers with different bases and the same exponent.} The fraction of the different bases can be set to the common exponent:
+\begin{equation*}
+\frac{x^a}{y^a}=\bigg(\frac{x}{y}\bigg)^a.
+\end{equation*}
+\end{enumerate}
+
+\begin{enumerate}
+\item $_a\sqrt{x}_b\sqrt{x}=x^{\frac{1}{a}}x^{\frac{1}{b}}=x^{\frac{1}{a}+\frac{1}{b}}=x^{\frac{a+b}{ab}}=({x^{a+b}})^{\frac{1}{ab}}=_{ab}\sqrt{x^{a+b}}.$\\[4pt]
+\item $\frac{_a\sqrt{x}}{_b\sqrt{x}}=\frac{x^{\frac{1}{a}}}{x^{\frac{1}{b}}}=x^{\frac{1}{a}-\frac{1}{b}}=x^{\frac{b-a}{ab}}=({x^{b-a}})^{\frac{1}{ab}}=_{ab}\sqrt{x^{b-a}}.$\\[4pt]
+\item $_{-a}\sqrt{x}=x^{-\frac{1}{a}}=\frac{1}{x^{\frac{1}{a}}}=\frac{1}{_a\sqrt{x}}.$\\[4pt]
+\item $_1\sqrt{x}=x$ for all $x$, so we never consider these \textit{first} roots.\\[4pt]
+\item $_b\sqrt{_a\sqrt{x}}=(x^\frac{1}{a})^\frac{1}{b}=x^{\frac{1}{ab}}=_{ab}\sqrt{x}$.\\[4pt]
+\item $_a\sqrt{x}_a\sqrt{y}=x^{\frac{1}{a}}y^{\frac{1}{a}}=(xy)^{\frac{1}{a}}=_a\sqrt{xy}$.
+\end{enumerate}
+
+\begin{itemize}
+\item \textbf{Step 1.} Find the LCD.  Here LCD$(4,6)=12$.
+\item \textbf{Step 2.} For each fraction, multiply the numerator and denominator by the number that makes the denominator equal to the LCD.  For the first fraction, that number is 3 since $4\times3=12$, and for the second fraction that number is 2.  So, changing the fractions, we obtain
+\begin{equation*}
+\frac{3\times3}{4\times3}+\frac{5\times2}{6\times2}=\frac{9}{12}+\frac{10}{12}.
+\end{equation*}
+\item \textbf{Step 3.} Add the numerators, and leave the common denominator alone:
+\begin{equation*}
+\frac{9}{12}+\frac{10}{12}=\frac{19}{12}.
+\end{equation*}
+\end{itemize}
+
+\begin{enumerate}
+\setlength\itemsep{3pt}
+\item[(a)] How many possible AES-128 keys are there? Write your answer with an exponent, but in addition, \deleted{in order}to have a sense of how large this number is, use Stata, R, or a similar program to write out the number approximately. (\textit{Hint}: The notation ``e+10'' means that you should move the decimal point 10 places to the right, so 1.23e+10 is 12,300,000,000.) 
+\item[(b)] Suppose that a supercomputer can check 1,000,000,000,000,000 (1 quadril\-lion) possible AES-128 keys every second.  Approximately how long (\textit{hint}: in \textit{years}) would it take the computer to test every possible AES-128 key? 
+\item[(c)] In theory, but probably not yet in reality, there can exist something called a quantum computer that uses the laws of quantum physics to perform many computations at once. 
+\end{enumerate}
+
+\begin{quotation}
+\noindent Consider a problem that has these four properties:
+\begin{enumerate}
+\item[1.] The only way to solve it is to guess answers repeatedly and check them,
+\item[2.] the number of possible answers to check is the same as the number of inputs,
+\item[3.] every possible answer takes the same amount of time to check, and
+\item[4.] there are no clues about which answers might be better: generating possibilities randomly is just as good as checking them in some special order.
+\end{enumerate}\vspace{3pt}
+For problems with all four properties, the time for a quantum computer to solve this will be proportional to the square root of the number of inputs. (From the Wikipedia page on quantum computers.)\footnote{See the explanation of the Freedom House measurement methodology at \href{http://www.freedomhouse.org/ report/freedom-world-2014/methodology}{\textcolor{black}{http://www.freedomhouse.org/ report/freedom-world-2014/methodology}.}}
+\end{quotation}
+
+

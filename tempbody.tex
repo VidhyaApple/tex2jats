@@ -1,0 +1,535 @@
+\section{Introduction-test}
+A medical experiment on human beings should
+be aimed to provide best possible care for the individual patients.
+Traditional balanced treatment allocation, in the two-treatment set up, suggests allocating incoming patients to a treatment by tossing a fair coin. But such a 50:50 allocation has often been challenged due to its possible
+unethical consequences. Connor and et al.**citeref{1} and Zelen and Wei**citeref{2} discussed the results of the trial of the drug AZT in reducing the risk of maternal-to-infant HIV transmission. A balanced allocation rule treated 238 pregnant women by AZT, while the rest (i.e. 238) received the placebo. It was observed that 60 newborns in the placebo group were
+HIV positive whereas only 20 HIV positives were found in the AZT group. This is an appreciable difference and suggests that adaptive allocation to the better treatment would have reduced the total number of HIV-positive babies. To illustrate some properties of adaptive designs, Yao and Wei**citeref{3} assumed that the responses were instantaneous, although they were not so. The estimated probabilities of survival after observing all the responses from AZT and placebo are respectively 0.9160 and 0.7479 when the study endpoint is time-to-diagnosis of HIV in the newborn. Using these as the true values Yao and Wei**citeref{3} observed that the randomized play-the-winner rule**citeref{4}, a popular response-adaptive design would have resulted in an allocation of 300:176 in favour of AZT, and lives of 11 newborns could have been saved! Hence it is logical to design any trial in such a way that a modification becomes possible along the way using the observed responses.
+
+An allocation procedure randomizing  entering patients based on the accrued data so far is referred to as \textit{adaptive}. According to FDA draft guidance, 2010, adaptive randomization is a form of treatment allocation in which the probability of patient assignment to any particular treatment is adjusted based on repeated comparative analysis of the allocation and response data  accrued so far. Naturally the randomization schedule across the study can change frequently or continuously over the duration of the study. However, such randomization is adopted when the outcomes are immediate and  are observed faster than the study enrolment.
+
+For a comprehensive classification of different allocation procedures, we consider a clinical trial with sequentially entered patients, each of whom is to be assigned to either of the $t$ competing treatments. Let $\delta_{kj}$ be the treatment indicator ($= 1$ or 0 according as treatment $k$ is applied or not) and $X_{kj}$ be the response that would have been observed
+if  treatment $k$ was assigned to the $j$th subject, $k=1,\cdots ,t$; $j=1,2,\cdots$, and  in addition, let  $\textbf{Z}_{j}$ denote the corresponding vector of covariate information. Let $\mathcal{T}_{n}$, $\mathcal{X}_{n}$ and $\mathcal{Z}_{n}$ denote, respectively, the information (i.e. $\sigma$-algebra) contained in the first $n$ treatment assignments, responses and covariates. In addition we denote the available \textit{data} by $\mathcal{F}_{n}$ ,which is the totality of all response, allocation and covariate information up to the $n$th subject plus the covariate information of the $(n+1)$th subject. Then any allocation scheme can be defined by the conditional expectation
+$$E(\delta_{kn}\mid \mathcal{F}_{n-1}),~~ n\geq 1, ~~k=1,\cdots ,t,$$
+and depending on the use of available \textit{data}, we can classify a data-dependent allocation (or, a randomization procedure) in the following way.
+
+\begin{itemize}
+\item {\textit{Allocation-adaptive randomization:}
+ \begin{center}
+ $E(\delta_{kn}\mid \mathcal{F}_{n-1})=E(\delta_{kn}\mid \mathcal{T}_{n-1});$
+\end{center}
+}
+\item{\textit{Response-adaptive randomization:}
+\begin{center}
+$E(\delta_{kn}\mid \mathcal{F}_{n-1})=E(\delta_{kn}\mid \mathcal{T}_{n-1},\mathcal{X}_{n-1});$
+\end{center}
+}
+\item{\textit{Covariate-adaptive randomization:}
+\begin{center}
+ $E(\delta_{kn}\mid \mathcal{F}_{n-1})=E(\delta_{kn}\mid \mathcal{T}_{n-1},\mathcal{Z}_{n});$ and
+\end{center}
+}
+\item{\textit{Covariate-adjusted response-adaptive randomization:}
+\begin{center}
+$E(\delta_{kn}\mid \mathcal{F}_{n-1})=E(\delta_{kn}\mid \mathcal{T}_{n-1},\mathcal{X}_{n-1},\mathcal{Z}_{n}).$
+\end{center}
+}
+\end{itemize}
+\noindent Thus, in a response-adaptive design, whenever the observed data reveals the superiority of a treatment arm, the allocation probability get skewed in favour of the better performing treatment and hence  the allocation tend to favour this arm ensuring more allocation to this treatment**citeref{5}, on an average. The preliminary ideas in this direction can be found in Thompson**citeref{6} and Robbins**citeref{7}, followed by Anscombe**citeref{8} and Colton**citeref{9}. A brief history including the recent developments can be found in Rosenberger and Lachin**citeref{10}, Rosenberger**citeref{11} and the booklength discussions  of Rosenberger and Lachin**citeref{12}, Chow and Chang**citeref{13} and Hu and Rosenberger**citeref{14}.
+
+Most of the available works in response-adaptive designs are for binary treatment outcomes. Examples include the play-the-winner rule**citeref{15}, the randomized play-the-winner rule**citeref{4}, the success driven design**citeref{16}, the drop-the-loser design**citeref{17}, and the generalised drop-the-loser design**citeref{18}, among others. A detailed discussion of the designs up to 2001 is available in Biswas**citeref{19}. But, in many clinical trials, the primary outcome may be of continuous type. Wilson, Lacourci$\grave{e}$re and Barnes**citeref{20} considered office-recorded diastolic blood pressure reduction much earlier as the primary outcome to evaluate the antihypertensive efficacy of losartan and amlodipine. The Hamilton depression rating scale (HDRS) is used as the primary outcome to measure depression in many trials**citeref{21,22}. Dworkin  and his colleagues**citeref{23}  reported a clinical trial to investigate the efficacy of pregabalin in the treatment of postherpetic neuralgia where the primary efficacy measure was an 11-point numerical pain rating score. This can also be treated as a continuous variable**citeref{24,25,26}. Time to event is of interest in some situations. For example, Fu et al.**citeref{27} considered a clinical trial to evaluate the efficacy
+of topical recombinant bovine basic fibroblast growth factor for second degree burns, considered wound healing time as the primary outcome.
+
+The present paper is a review of the available works on
+response-adaptive procedures with continuous responses. We start
+with the available adaptive procedures which are developed in an ad-hoc manner, in section 2. In section 3, we discuss the general formulation of an optimal target proportion together with the implementation in practice. The usefulness of incorporating covariate information for allocation of subjects is discussed in section 4. In section 5, we address a new consideration, namely efficiency,  in response-adaptive randomization. Response-adaptive allocation schemes adjusted for delayed responses are discussed in section 6. In section 7 a comparative performance study of different allocation schemes are done by simulations. The comparion is also carried out with reference to a real clinical trials. Finally, we end up with a discussion of related and upcoming issues in section 8.
+
+\section{General Allocation Designs}
+
+\subsection{Nonparametric allocation procedures}
+
+Response-adaptive designs for binary responses are mostly based on urns with balls of different colours, representing different treatments. A patient is assigned to a treatment by drawing a ball at random from the urn. Based on patients' responses (success/failure), balls are added or removed according to some random mechanism. Successes generally increase the balls
+representing the successful treatment whereas failures alternate the
+addition process. In this way, the urn composition becomes skewed in
+favour of the better performing treatment. However many clinical
+trials are long term survival trials producing continuous outcomes.
+But in most of the available works, there has been suggestions as to
+how to make a continuous response dichotomous by introducing some
+clinically relevant threshold**citeref{22,28}. For trials with continuous outcomes, Rosenberger**citeref{29} was perhaps the first to develop a reasonable allocation design for general class of responses. He introduced the idea of \textit{treatment effect mapping}, where the assignment probabilities are suitable functions of the current estimate of treatment effectiveness. The
+intuitive appeal of such a mapping is that the patients are
+allocated according to the currently available magnitudes of the
+treatment effect ensuring a larger number of assignments to the
+better treatment. To be specific, consider a two treatment clinical
+trial with treatments 1 and 2. Let ${\hat\Delta}_{j}$ be current estimate of $\Delta$, a suitable measure of treatment effectiveness, after $j$ responses. If a larger response is preferred, then a larger value of ${\hat\Delta}_{j}$ reflects the possible superiority
+of treatment 1 at that stage of the trial. Then the suggested rule
+assigns the $(j+1)$st subject to treatment 1 with probability
+$g({\hat\Delta}_{j})$ for some continuous function $g$ on $[0,1]$ such that $g(0)=\frac{1}{2}$, $g(x)>\frac{1}{2} ~ \mbox{ if } x>0,$ and,
+$g(x)< \frac{1}{2} ~ \mbox{ if } x<0.$ Such a choice
+of $g$ allows to allocate more patients to treatment performing
+better. As an example, Rosenberger**citeref{29} used $g(x)=\frac{1+x}{2}$
+with the normalised linear rank test statistic as the measure of
+treatment difference. Yao and Wei**citeref{3} used the same formulation
+with
+\[g(x) = \left\{
+\begin{array}{ll}
+\frac{1}{2}+ xr & \mbox{ if } |xr|\leq .4\\
+0.1 & \mbox{ if } xr<-.4 \\
+0.9 & \mbox{ if } xr>.4,
+\end{array}
+\right. \]
+where $r$ is a constant reflecting the experimenter's intention to
+adapt the trial. Standardized Gehan-Wilcoxon test statistic is used
+to measure the difference in treatment effectiveness. Rosenberger
+and Seshaiyer**citeref{30} used the same technique in the context of a
+clinical trial with survival outcomes. Centered and scaled log rank
+statistic is used as a measure of treatment difference with
+$\frac{1+x}{2}$ as the choice of $g(x)$. However, the procedure
+was not studied in details.
+
+\subsection{Continuous drop-the-losers}
+
+Urn model is a popular tool to skew the allocation towards the better treatment arm. Most of the popularly used urn designs (e.g. the randomized play-the-winner rule) are actually birth processes and hence are highly variable, often leading to a loss in power of a relevant test of treatment equivalence. With a view to reduce variability of allocation proportion for any particular treatment or equivalently to enhance statistical power, Ivanova**citeref{17} developed an urn based allocation design, called drop-the-loser. The allocation is actually a death process and consequently is less variable. A lower variability of the observed allocation proportion in small samples ensures a faster rate of achieving the limiting allocation proportion. Drop-the-loser, in fact, minimises the limiting variability of the observed allocation proportion**citeref{69}. However the rule was initially developed
+with binary responses and subsequently modified**citeref{31} for
+continuous responses. The urn initially contains balls of $(t+1)$ types,
+balls of types $1,\cdots ,t$ represent $t$ treatments and balls of type 0 are immigration balls. Whenever a subject arrives, a ball is removed from the urn and the subject is given treatment $j$ if it is a ball of $j$th type, $j=1,\cdots ,t$, and his/her response is observed. For an immigration ball, no subject is treated, the ball is replaced and $t$ additional balls, one of each treatment type, is added to the urn. The procedure is repeated until a ball representing a treatment is obtained. If the response of the subject exceeds a clinically significant threshold (which does not vary throughout the trial) then the removed ball is replaced otherwise it is withdrawn from the urn. This is known as \textit{continuous drop-the-loser rule}, which is abbreviated as the CDL. A randomised version of the above rule, suggesting to replace the ball drawn with probability depending on the outcome observed, is also
+provided. The procedure is studied explicitly for two treatments and
+a lower rate of variability is observed than the available competitors. Simulations also reveal a significantly higher assignment to the better treatment with a lower variability  even for unequal response variances. In a recent work, Biswas and Bhattacharya**citeref{32} provided some modification of the existing CDL design and extends the CDL rule to provide two new designs which have more or less the same allocation to the better treatment as that of the CDL, but the variability is shown to be 20-30\% less than that of CDL. The allocation procedure is similar with CDL, except that after each response only fractions of the withdrawn ball is added to the urn. Naturally the urn may contain \textit{fractional balls} at a particular time but this will not affect the allocation procedure as the allocation is carried out using computer generated random numbers. The theoretical results are also supported through a detailed simulation study.
+
+\subsection{A Wilcoxon-Mann-Whitney-type adaptive design}
+
+The Wilcoxon-Mann-Whitney-type adaptive design**citeref{33} (WAD) is actually an urn based \textit{allocation-cum-testing} procedure for
+two treatment continuous response trials, where after each response the urn is updated according to the value of a Wilcoxon-Mann-Whitney-type
+statistic. The design is studied theoretically and some asymptotic
+results together with an exactly distribution free solution for
+generalized Behrens-Fisher problem is derived. Specifically if we
+characterise the response from treatment 1 (2) by a continuous univariate
+distribution function $F$ ($G$) with $G(x)=F(x-\Delta)$, then the limiting allocation to the better treatment (treatment 2 in this case) is established as $\int F(x-\Delta)dF(x)$.
+
+\subsection{Doubly adaptive biased coin designs}
+
+All the rules discussed so far were developed with a strategy to assign
+more subjects to the better treatment, but not designed with a target proportion of allocation. Doubly adaptive biased coin design (DBCD) is
+a family of response adaptive procedures targeting a pre-specified
+allocation proportion. It was originally proposed by Eisele**citeref{34}
+and subsequently modified and extended by many authors**citeref{35,36}. The procedure involves a target allocation as a function of unknown parameters of the response model, and sequentially substitutes updated estimates of the unknown parameters based on available data. To be specific, if the target allocation proportion of subjects to treatment 1 be $\rho$, then the
+allocation is carried out through a function $g(x,\rho)$ from $[0,1]^2$
+to $[0,1]$ which bridges the observed allocation proportion to the
+target allocation satisfying the following regularity conditions:
+(i) $g$ is jointly continuous, (ii) $g(x,x)=x$, (iii) $g(x,\rho)$ is
+strictly decreasing in $x$ and strictly increasing in $\rho$ on
+$(0,1)^2$, and (iv) $g$ has bounded derivatives in both arguments.
+Then the procedure allocates the $(j+1)$st patient to treatment 1
+with probability $g(\frac{N_{1j}}{j},\widehat{\rho}_j)$, where
+$\frac{N_{1j}}{j}$ is the observed proportion to treatment 1,
+$\widehat{\rho}_j$ is the estimated target proportion after the
+$j$th patient. The intuitive idea behind these regularity conditions is to ensure that $g(\frac{N_{1j}}{j},\widehat{\rho}_j)> ~\mbox{or}~ <\widehat{\rho}_j$ according as $\frac{N_{1j}}{j}<~\mbox{or}~>\widehat{\rho}_j$ and ultimately $\frac{N_{1j}}{j}$ and $\widehat{\rho}_j$ become very close to the target proportion $\rho$.  Naturally, the choice of $g$ is an important concern. Eisele and Woodroofe**citeref{35} gave a set of conditions that the allocation function $g$ should satisfy to ensure the target allocation $\rho$ in the limit. But these
+conditions are very restrictive and are usually difficult to check.
+In fact, the choice of $g$, suggested by  Eisele and Woodroofe**citeref{35}  violates their own regularity conditions**citeref{37}. In a follow up work, Hu and Zhang**citeref{36} suggested the following family of allocation functions:
+\[g^{(\gamma)}(x,\rho) = \left\{
+\begin{array}{ll}
+1& \mbox{~if~} x=0,\\
+\frac{\rho(\frac{\rho}{x})^{\gamma}}{\rho(\frac{\rho}{x})^{\gamma}+(1-\rho)(\frac{1-\rho}{1-x})^{\gamma}} & \mbox{~if~} 0<x<1,\\
+0& \mbox{~if~} x=1,
+\end{array}
+\right. \]
+ together with a set of alternative conditions to ensure the desired target in the limit. The parameter $\gamma(\geq 0)$ controls the
+randomness of the procedure. Different choices of $\gamma$ produces
+different allocation procedures, a large value of $\gamma$ provides
+an allocation design with smaller variance but decreases the degree
+of randomness. Therefore, an appropriate choice of $\gamma$ should
+maintain a balance between the degree of randomization and the
+variability. For $\gamma=0$, we have $g^{(\gamma)}(x,\rho)=\rho$,
+which leads to \textit{Sequential Maximum Likelihood Procedure}**citeref{38}
+(SMLE), where at each stage $\rho$ is estimated, preferably by the method of maximum likelihood, and the next incoming subject is assigned to treatment 1 with this probability. However to start any allocation procedure using sequential estimation, some data must be available to compute the
+allocation probabilities at the initial stage. This necessitates the
+experimenter to allocate some patients initially to either treatment, perhaps by equal randomization or by some permuted block design. Properties of the SMLE procedure targeting two treatment Neyman allocation are explored by  Melfi, Page and Zeraldes**citeref{37}. Hu and Zhang**citeref{36} showed that, under some favourable conditions, with probability one $\lim_{n\rightarrow\infty}\frac{N_{1}(n)}{n}=\rho$, where $\rho$
+depends on the unknown parameter of the response distributions. They**citeref{36} also provided a multi-treatment generalization of
+the above supported by some related asymptotic results.\\
+
+\noindent Along the same line, as a compromise between
+\textit{ethics} and \textit{optimality}, Bandyopadhyay and Bhattacharya**citeref{39}, provided a SMLE procedure, which targets the allocation probability
+\[\left\{
+\begin{array}{ll}
+\max \left( \frac {\sigma_1}{\sigma_1 + \sigma_2},
+J(\frac{\mu_1-\mu_2}{T}) \right) & \mbox{ if } \mu_1 \geq \mu_2\\
+\min \left( \frac
+{\sigma_1}{\sigma_1 + \sigma_2} ,J(\frac{\mu_1-\mu_2}{T}) \right) & \mbox{ if } \mu_1 < \mu_2,
+\end{array}
+\right. \]
+where $\mu_{k}$ and  $\sigma^{2}_k$ are respectively the mean and variance of the response variable from treatment $k$, $k=1,2$, $J$ is some symmetric non-decreasing function and $T\in(0,\infty)$ is a tuning factor (may be parameter dependent). They have also provided some related asymptotic results and justified the gain in statistical and ethical precision, both by means of a simulation study.
+
+\subsection{Kernel Based Allocation Designs}
+
+Most of the available allocation designs require the existence of the first two moments of the response variables, but that is not always ensured in clinical response data because the responses may follow a heavy-tailed distribution. The work by Imrey and Kingman**citeref{40} explore the possibility of such heavy-tailed response by means of a QQ plot. They provide a plot of one-year Electric Caries Meter measurements from teeth of the 47 Lithuanian children, and observe that the QQ plot is more vertical at both  ends than for the usual normal response data resembling the QQ plot for Cauchy responses. Consequently, the parametric response-adaptive designs will fail in such a situation. Naturally, kernel based compound allocation function  with specific weights to ethics and optimality is appropriate in this context**citeref{25}. Specifically 
+$$\pi_{\alpha}=\alpha ~P(X_{11}>X_{21})+(1-\alpha )P(|X_{11}-X_{12}|>|X_{21}-X_{22}|)$$
+was considered as the allocation function for treatment 1. Clearly, $\alpha\in (0,1)$ is a trade-off between ethics and optimality, and it should carefully be chosen before any application. They**citeref{25} also provided a \textit{self weighted} version, where $\alpha$ is determined sequentially depending on the current proportional treatment imbalance together with the results of a detailed simulation for responses without any finite moments. Along the same line of thinking, the authors provided a variation of the above allocation**citeref{26} in a very recent work  by replacing $P(|X_{11}-X_{12}|>|X_{21}-X_{22}|)$  by $P(X^{2}_{11}>X^{2}_{21}).$
+
+\section{Optimal response-adaptive designs}
+
+\subsection{Optimality in clinical trials}
+
+Most of the designs discussed so far were developed with the intuitive goal to assign more subjects to the better treatment. But skewing the allocation towards the better performing treatment, in general,  leads to a loss in statistical power and this particular phenomena limits the practitioners  to recommend response adaptive randomization in real trials. To balance between ethical consideration and preservation of statistical power, Jennison and Turnbull**citeref{41} suggested to develop the target allocation using a constrained optimization problem.  For the optimization problem, the objective function is taken to be a measure of ethics and the constraint is a function of power or vice versa. The solution of the optimization problem gives the optimal proportion, randomized to a treatment. Hardwick and Stout**citeref{42} reviewed several criteria that one may wish to optimize which includes  expected number of failures, the total expected sample size, expected number of allocations to the inferior treatment and total expected cost. However, the approach of  Hardwick and Stout**citeref{42} was to compute optimal designs using computationally intensive methods for various sequential allocation problems.
+
+\subsection{Allocations with two treatments}
+
+\subsubsection{Standard formulation}
+
+For the development of an optimal allocation design, what we primarily need is a clinically relevant criterion, minimisation of which is required to satisfy a subject. If  $n_k$ subjects are assigned to treatment $k$ in a non-randomised manner then  for any relevant ethical metric function  $\Psi_{k}$,  the objective function can be expressed as $G(n_1,n_2)=n_1
+\Psi_{1}+ n_2\Psi_{2}$. The choice of $\Psi_{k}$ is objective specific. That is, if the objective is to minimize total sample size then $\Psi_{k}=1$ whereas for the minimization of total expected response $\Psi_{k}=E(X_k)$ with $X_k$ denoting the potential response of a subject assigned treatment $k$. But minimisation of $G$ alone results in degenerate rules and this
+necessitates the consideration of  another criterion. In fact, in any
+clinical trial, apart from satisfying the ethical imperative, keeping a high level of power for a relevant test is also required. In this context, Biswas, Bhattacharya and Zhang**citeref{43}  provided a general technique to obtain optimal target allocations for continuous responses assuming that $X_k$ has  a continuous distribution with mean $\mu_{k}$ and finite variance ${\sigma_{k}^{2}}$ , $k=1,2$.  If under a hypothetical set up,  $n_{k}$
+subjects are assigned to treatment $k$ in a non-randomised manner, the
+variance of the estimator of the usual treatment difference, $\mu_{1}-\mu_{2}$, can be obtained as $\frac{\sigma_{1}^{2}}{n_1}+\frac{\sigma_{2}^{2}}{n_2}$. Naturally, a lower value of $\frac{\sigma_{1}^{2}}{n_1}+\frac{\sigma_{2}^{2}}{n_2}$ ensures a higher power for testing $H_{0}: \mu_1=\mu_2$ using Wald test. Thus the
+derivation of an optimal target allocation is equivalent to the
+following constrained optimisation problem:
+\begin{eqnarray*}
+Minimize  n_{1}\Psi_{1}+n_{2}\Psi_{2}
+ \end{eqnarray*}
+subject to the restriction
+\begin{eqnarray*}
+\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}\leq \kappa,
+\end{eqnarray*}
+where $\Psi_{k}$ is a strictly positive function of
+$(\mu_{k},\sigma_k)$ and $\kappa$ is a constant. A straightforward
+algebra gives the optimal proportion to treatment 1 as
+\begin{eqnarray*}
+\rho^{*}=\left(\frac{n_1}{n_{1}+n_{2}}\right)_{opt}=\frac{\sigma_{1}\sqrt{\Psi_{2}}}{\sigma_{1}\sqrt{\Psi_{2}}+\sigma_{2}\sqrt{\Psi_{1}}}.
+\end{eqnarray*}
+However, $\rho^{*}$ depends on the unknown parameters and a natural way to utilize the optimal proportion for the randomization of subjects is to replace the unknown parameters with their available estimates. We then require a rule(e.g. DBCD) which will use these sequentially estimated proportions to skew the allocation. In the simplest case, an optimal rule assigns the $(j+1)$st patient to treatment 1 with probability $\hat{\rho_{j}^{*}}$, where $\hat{\rho^{*}_{j}}$ is preferably the maximum likelihood estimate of $\rho^{*}$ after $j$ patients have
+responded. Note that the above optimisation problem is quite similar
+with the formulation of Jennison and Turnbull**citeref{41}, where
+$\Psi_{k}$ were functions of treatment difference $\mu_1-\mu_2$. But
+Biswas and his collaborators**citeref{43} assumed $\Psi_{k}$ as a function of the
+parameters of the response distribution for the $k$th treatment for
+easy interpretation and possible extension with more than two
+treatments. Different choices of $\Psi_{k}$s, reflecting different
+goal of the trial, provide different allocation rules. However, only
+a few optimal adaptive designs are available for continuous
+responses and we list them below.
+
+If $\Psi_{k}=1$ for each $k=1,2$, then  as indicated earlier, the optimisation problem is equivalent to minimize the total sample size for fixed variance
+of the estimated treatment difference. The optimal solution is the
+well known Neyman allocation $\rho_{N}=\frac{\sigma_{1}}{\sigma_{1}+\sigma_{2}}$ for two treatments. Melfi and his colleagues**citeref{37} studied the randomized design that
+targets this proportion and established that under certain regularity
+assumptions, the optimal allocation ratio $\rho_{N}$, to treatment 1
+is attained in the limit.
+
+Suppose the aim is to minimise the overall failure proportion in a
+trial where higher responses are treated as favourable. Unlike
+binary response trials, the failure is not rigidly defined when the
+response is continuous. Since a higher response is desirable, the
+proportion of responses less than a clinically significant threshold
+$c$ could be used to measure the proportion of failure. This suggests
+to take $\Psi_{k}=P(X_{k}<c)$, where $X_{k}$ represents the response
+variable corresponding to the $k$th treatment and the resulting
+allocation is nothing but the optimal allocation of Biswas and
+Mandal**citeref{44}. Considering exponential and normal responses they derived the explicit expressions of the optimal proportion but did
+not investigate the theoretical properties in detail. The success of
+the above procedure depends heavily on the choice of $c$, a larger
+choice of $c$ makes the failure proportion higher whereas a smaller
+choice reduces the proportion significantly. However, the average
+expected response may be a sensible
+choice for $c$.
+
+Next suppose a lower response is desirable and consequently one may
+wish to minimise the total expected response of the patients. Zhang
+and Rosenberger**citeref{24} used this formulation under normal responses
+and considered the optimisation problem with $\Psi_{k}=\mu_{k}$.
+Quite naturally the optimal proportion to treatment 1 is
+\begin{eqnarray*}
+\rho_{ZR}=\frac{\sigma_{1}\sqrt{\mu_{2}}}{\sigma_{1}\sqrt{\mu_{2}}+\sigma_{2}\sqrt{\mu_{1}}}.
+\end{eqnarray*}
+However, it is important to note that, in real practice the
+allocation may be meaningless (impossible to implement). A simulation study with this allocation target revealed that  whenever at any stage of the experiment, at least one of
+the estimated $\mu_{k}$ becomes negative, the simulation process crashes down without generating any output**citeref{43}. In fact in a recent work**citeref{32}, it is established that $\rho_{ZR}$
+no longer remains the optimal solution when at least one of the
+$\mu_{k}$'s are negative. The optimality is preserved only for positive valued response
+distributions (e.g. exponential or two parameter gamma). In
+this context a modification**citeref{43} could be to replace $\mu_{k}$ by $E(X_{k}|X_{k}>0)$ with $X_{k}$. A variety of optimal target proportions together with the performance explaining detailed simulation study
+can be found in the work of Biswas and his collaborators**citeref{43}.
+
+The above discussion is based on a single clinically relevant criterion, but in real situations there may be additional clinical constraints to control simultaneously. Such a procedure can be found in Bandyopadhyay and Bhattacharya**citeref{45} where, using a combined objective function, simultaneous minimisation of treatment failures and allocation to the inferior treatment is considered, subject to a fixed level of statistical precision. An investigation of the performance of the proposed procedure for a general class of responses can also be found. Along the same line, Biswas and Bhattacharya**citeref{46} developed another optimal target with an aim to maximise the power of a test of treatment equivalence keeping both the treatment failures and the allocation to the inferior treatment at a low level.
+
+\subsubsection{Optimal design based formulation}
+
+Another class of optimal designs can be found in Antognini and
+Giovangoli**citeref{47}, where optimum design theory**citeref{48}  is
+used to derive various optimal targets. Assuming that the treatment outcome (i.e. response) has a distribution belonging to a regular exponential family, they obtained the unconditional Fisher's information matrix $M$. Then any design minimising $\phi(M^{-1})$, a convex function of the inverse of Fisher's information matrix, is \textit{optimal}. Possible choices of $\phi$ could be the $Trace(M^{-1})$, giving the A-optimal design, $\log|M^{-1}|$, giving the D-optimal design or the maximum eigenvalue of $M^{-1}$, giving
+the E-optimal design. For normally distributed responses, the
+A-optimal design leads to the target $\frac{\sigma_{1}}{\sigma_{1}+\sigma_{2}}$, the well known Neyman
+allocation of survey sampling; the E-optimal design leads to the target
+$\frac{\sigma_{1}^{2}}{\sigma_{1}^{2}+\sigma_{2}^{2}}$; whereas
+D-optimal design reduces to the completely random allocation. In a real trial
+the procedures can be applied by using sequentially updated estimates of the parameters at each stage. They**citeref{47} established that under certain restrictions, the randomisation procedure converges to the optimal allocation
+proportion. However the procedure is not attractive ethically as the target completely ignores the treatment effectiveness and hence the better treatment can be under-represented if the variability is lower.
+
+\subsubsection{Allocations for survival outcomes}
+
+Many clinical trials have time-to-event outcomes, with an an inherent delay in survival time responses, with possible censoring. Zhang and
+Rosenberger**citeref{49} presented an optimal allocation procedure
+incorporating the possible presence of censoring and delay.
+Assuming exponential responses subject to right censoring, they have
+derived the optimal proportion by minimising the total expected
+hazard. The optimal proportion can be obtained from the general
+optimisation problem taking $\Psi_{k}={\mu_{k}}^{-1}$ and
+$\sigma_{k}^{2}=\frac{\mu_{k}^{2}}{\epsilon_{k}}$, where $\mu_{k}$
+is the expected response for the $k$th treatment and $\epsilon_{k}$
+is the fixed non-censoring proportion for the subjects with treatment $k$, $k=1,2$. Consequently the optimal allocation proportion to treatment 1 takes the form
+\begin{eqnarray*}
+\frac{\sqrt{\mu_{1}^{3}{\epsilon_{2}}}}{\sqrt{\mu_{1}^{3}{\epsilon_{2}}}+\sqrt{\mu_{2}^{3}{\epsilon_{1}}}}.
+\end{eqnarray*}
+They have also considered minimisation of the total number of
+subjects in the trial, which corresponds to the choice $\Psi_{k}=1$, $k=1,2$, and hence obtained the proportion
+\begin{eqnarray*}
+\frac{\mu_{1}\sqrt{{\epsilon_{2}}}}{\mu_{1}\sqrt{{\epsilon_{2}}}+\mu_{2}\sqrt{{\epsilon_{1}}}},
+\end{eqnarray*}
+an analogue to the well known Neyman allocation for survival
+outcomes. The corresponding optimal proportions for Weibull
+distribution are also obtained. The exact properties of the
+procedures are investigated through a simulation study using uniform
+censoring for both the treatments. In addition, some relevant
+asymptotic results are also established.
+
+\subsection{More than two treatments}
+
+Formulation of an optimal target proportion for $t~(>2)$ treatments is not just a straightforward extension of what we have discussed for two treatments. It is rather difficult as the variance function is not defined uniquely, and hence different formulations of the problem are possible. One such formulation with binary responses can be found in Tymofyeyev, Rosenberger and Hu**citeref{50}, where the non-centrality parameter of the contrast test of homogeneity is substituted for the variance function. Specifically they provided a multi-treatment analogue of Neyman allocation for an arbitrary number of treatments with binary outcomes. With continuous responses, the non-centrality parameter for testing $H_{0}: \mu_{1}-\mu_{t}=\mu_{2}-\mu_{t}=\cdots =\mu_{t-1}-\mu_{t}=0$  can be expressed as
+\begin{eqnarray*}
+\phi(n_{1},n_{2},\cdots ,n_{t})=\sum_{j=1}^{t-1}(\mu_{j}-\mu_{t})^{2}n_{j}\sigma_{j}^{-2}-\left(\sum_{j=1}^{t}n_{j}\sigma_{j}^{-2}\right)^{-1}\left\{\sum_{j=1}^{t-1}(\mu_{j}-\mu_{t})n_{j}\sigma_{j}^{-2}\right\}^{2},
+\end{eqnarray*}
+where treatment $t$ is considered as control. Then continuous analogue  could be the following optimisation problem:
+\begin{eqnarray*}
+\mbox{~Minimize~} \sum_{j=1}^{t}n_{j}\Psi_{j}
+\end{eqnarray*}
+subject to the restrictions
+\begin{eqnarray*}
+\phi(n_{1},n_{2},\cdots ,n_{t})\geq \kappa
+\end{eqnarray*}
+and
+\begin{eqnarray}
+\frac{n_{j}}{\sum_{k=1}^{t}n_{k}}\geq B,~~ j=1,\cdots ,t,**labelref{B-intro}
+\end{eqnarray}
+where $\Psi_{k}$ is a measure of clinical effectiveness for treatment $k$, $\kappa~(>0)$ is a constant and $B\in[0,t^{-1}]$ ensures an explicit control over the target proportions. But no explicit form solution is worked out for the above optimisation problem. However, with exponentially distributed responses, Zhu and Hu**citeref{51} derived the target proportion with $\Psi_{k}=1$ and $\mu_{k}$, $k=1,\cdots ,t$, and assessed the implemented procedure in terms of both the assignment fraction to the best treatment and power of a test of treatment equivalence. An alternative formulation can be found in Biswas, Mandal and Bhattacharya**citeref{52}, where the target proportion is obtained as a solution to the  following optimisation problem
+$$\mbox{Minimize~ } \sum_{j=1}^{t}n_{j}\Psi_{j}$$
+subject to the restrictions
+$$\frac{\sigma_{j}^{2}}{n_{j}}+\frac{\sigma_{t}^{2}}{n_{t}}\leq \kappa_{j}, ~j=1,\cdots ,t-1,$$
+where and $\kappa_{j}$ are constants and $\Psi$'s are strictly positive. With equal $\kappa$'s they obtained the optimal solution
+\[\left(\frac{n_{j}}{\sum_{i=1}^{k}n_{i}}\right)_{opt} = \left\{
+\begin{array}{ll}
+\frac{\sigma_{j}^{2}}{\sigma_{1}^{2}+\cdots +\sigma_{t-1}^{2}+\sqrt{\frac{\sigma_{t}^{2}}{\Psi_{t}}}\sqrt{\sum_{i=1}^{t-1}\Psi_{i}\sigma_{i}^{2}}}& \mbox{~if~} j=1,2,\cdots ,t-1,\\
+\frac{\sqrt{\frac{\sigma_{t}^{2}}{\Psi_{t}}}\sqrt{\sum_{i=1}^{t-1}\Psi_{i}\sigma_{i}^{2}}}{\sigma_{1}^{2}+\cdots +\sigma_{t-1}^{2}+\sqrt{\frac{\sigma_{t}^{2}}{\Psi_{t}}}\sqrt{\sum_{i=1}^{t-1}\Psi_{i}\sigma_{i}^{2}}} & \mbox{~if~} j=t.
+\end{array}
+\right. \]
+But for unequal $\kappa$'s  the solution can be obtained through some numerical procedures. Biswas et al.**citeref{52}  explored such an allocation for continuous responses and assessed the procedure both theoretically and numerically. For survival trials, Sverdlov, Tymofyeyev and Wong**citeref{53} considered the formulation exactly as in (**refref{B-intro}) and obtained the target proportions assuming exponential responses under random censoring schemes. Analytical details are given for $\Psi_{k}=1$, but only numerical details are provided when $\Psi_{k}$ represents the hazard for the $k$th treatment. Since the optimal proportions depend on unknown parameters, they implemented the allocation using sequentially updated maximum likelihood estimates within the framework of a DBCD procedure**citeref{36}. Various design and inference related aspects of the allocation are investigated even under the presence of delay.\\
+
+\noindent  At this point, we note that the optimal target proportion is unknown and  an estimate of the optimal proportion based on the available data is used as the randomization probability for the next entering patient. As a result, instead of fixed allocation probability for each subject under the trial, we get varying allocation probabilities. Naturally the so called \textit{optimality} is not preserved at the intermediate stages. But the \textit{optimality} is retained in the long run in the sense that the observed allocation proportions/probabilities at different stages converge stochastically to the optimal target proportion under widely satisfied regularity conditions.
+
+\section{Incorporating covariate information}
+
+\subsection{Covariate dependent designs}
+
+In a modern clinical trials, in addition to the primary
+outcome, information on several covariates is collected. Since human
+beings are complex organisms, their responses to therapy are
+expected to be influenced by the respective covariate information.
+For example, the effect of a hypertensive drug depends on age,
+initial blood pressure and cholesterol level of the patient. Again
+the effectiveness of a therapy to cancer may depend on the smoking
+habit, initial size of the tumour of the patient, among other covariates. Thus it is reasonable to allow the allocation
+of the current patient to depend not only on responses of the
+previous patients but also on the covariates. But only a few works
+utilising covariate information are available in literature.
+
+Begg and Iglewicz**citeref{54} used the optimum design theory where a deterministic treatment allocation rule is derived in the
+presence of covariate. Atkinson**citeref{55} also used the optimum design
+theory to provide an allocation procedure for an arbitrary number of
+treatments under the presence of covariate information. Some recent
+developments in this direction can be found in Atkinson**citeref{56,57}, Atkinson and Biswas**citeref{58} and Wong and Zhu**citeref{59}. All these procedures except that of Atkinson and Biswas**citeref{58}, are actually \textit{covariate-adaptive}, not \textit{response-adaptive}, as
+the responses are completely ignored while assigning the next
+patient. The purpose of such an allocation design is to provide a
+guard against potential biases as well as balancing the covariates
+across treatments. Thus these rules may assign fewer patients to the
+better treatment arm and hence can not be appreciated from a
+clinician's point of view.
+
+The link function based simple design of Bandyopadhyay and Biswas**citeref{60} is perhaps the first
+attempt to allocate patients in an ethical way using the covariate
+information. Also this is perhaps the first attempt to use the totality of the continuous responses without using nonparametric scores. The design, even without covariates, is still very popular and used in constructing more complicated designs by others. Considering a homoscedastic linear model with common error variances and under the normality of responses they have suggested the allocation probability $J(\frac{\hat{\Delta}_{i}}{T})$ for the $(i+1)$st patient to treatment 1, where ${\hat\Delta}_{i}$ is the observed value of the treatment difference $\Delta=\mu_1-\mu_2$ based on the allocation, response and covariate information of previous $i$ subjects and $T$ is a positive tuning parameter which may be a function of the error variance ($T$ may sequentially be estimated in that case). Here $J$ is the cumulative distribution function (cdf) of a random variable which is symmetric about 0. The most obvious choice of $J$ is $\Phi$, the cdf of a standard normal distribution. The procedure also works well without the presence of covariates, and for non-normal distributions of responses. Quite naturally a larger number of assignments to the better treatment is expected. In fact if a sufficiently large number of patients are treated, then the limiting allocation proportion to treatment 1 is derived as
+$\Phi(\frac{\Delta}{T})$. A generalized version of the above allocation for multivariate responses is also available**citeref{61}.
+
+Biswas, Huang and Huang**citeref{62} proposed an urn based
+allocation design under the assumption of a normal linear model
+with homoscedasticity. The procedure is similar to the formulation of
+continuous drop-the-loser**citeref{31} except that, in addition, we have covariate information for each entering subject.
+Then, depending on the allocation, response and the covariate
+information up to the current patient (i.e. the $i$th patient), we return the selected ball with probability $p_{i+1}$, a reasonable function
+of the data accumulated prior to the entrance of the $(i+1)$st patient. In the binary version of the drop-the-loser$^{17}$, the ball was replaced for a success and withdrawn whenever a failure occurs.
+But for a continuous response model, some sensible threshold is set  to get the ball replacement probability**citeref{62}. The authors also investigated the relevant performance measures through an extensive simulation study.
+
+However the covariate information of any subject is generally known prior to his/her entrance and hence it seems sensible to use the current patient's covariate to determine the allocation. Such an allocation strategy is consistent with the primary aim of a clinical trial and is referred to as \textit{covariate adjusted response adaptive} (or CARA) randomisation procedure**citeref{14}. An extensive study of CARA procedures together with the relevant asymptotic properties and possible extension for several treatments are also available in recent literature**citeref{63,64}. Examining the rules already discussed, we note that the optimal rule of Biswas and Mandal**citeref{44} is the only allocation design that fits into a CARA randomisation procedure. Also the link function based design can be easily put in that way. In fact, the multi-treatment multivariate generalization of the link function based design, given by Biswas and Coad**citeref{61} is a CARA design. These**citeref{44,61} were proposed even before the formal introduction of CARA design**citeref{14}.
+
+
+\subsection{Optimal covariate dependent designs}
+
+The covariate dependent allocation designs of
+Atkinson**citeref{55,56,57}, Atkinson and Biswas**citeref{58} and Wong and Zhu**citeref{59} are all
+\textit{optimal} in the sense that they minimise the variability of
+the estimated treatment difference incorporating covariates. However,
+among the available covariate dependent allocation designs for
+continuous responses,  Biswas and Mandal**citeref{44}
+provided a way to incorporate covariate
+information with an aim to minimise treatment failures subject to some inferential gain. With the notations already introduced, we further assume that the response of the $i$th subject treated by treatment $k$ is normally distributed with
+mean $\mu_{k}+\mathbf{\beta}^{T}{\mathbf{Z}}_{i}$ and variance $\sigma^2$, where vectors of covariate information are independently and identically normal random variables with mean vector $\mathbf{\xi}$ and covariance matrix $\Sigma$. Then the expected number of responses less than a threshold $c$ when all the patients have a fixed covariate vector
+${\mathbf{Z}}_{0}$, can be expressed as
+\begin{eqnarray*}
+n_{1}\Phi\left(\frac{c-\mu_{1}-\mathbf{\beta}^{T}{\mathbf{Z}}_{0}}{\sigma}\right)+n_{2}\Phi\left(\frac{c-\mu_{2}-\mathbf{\beta}^{T}{\mathbf{Z}}_{0}}{\sigma}\right),
+\end{eqnarray*}
+where $n_{k}$ is the allocation number to treatment $k$, $k=1,2$. Then
+fixing the unconditional variance of the estimated treatment
+difference at some preassigned value the optimal
+proportion to treatment 1 is
+\begin{eqnarray*}
+\frac{{\Phi\left(\frac{c-\mu_{2}-\mathbf{\beta}^{T}{\mathbf{Z}}_{0}}{\sigma}\right)}}{{\Phi\left(\frac{c-\mu_{1}-\mathbf{\beta}^{T}{\mathbf{Z}}_{0}}{\sigma}\right)}+
+{\Phi\left(\frac{c-\mu_{2}-mathbf{\beta}^{T}{\mathbf{Z}}_{0}}{\sigma}\right)}}.
+\end{eqnarray*}
+In real situations, parameters are no longer known and are to be replaced
+by the corresponding estimates, based on the available data
+and ${\mathbf{Z}}_{0}$ by the covariate vector of the next entering subject. But in practice, the effect of covariate is not uniform and hence  the assumption that all patients have a fixed covariate vector is often a concern for the clinicians. In a recent work, Antognini and Zagoraiou**citeref{65} addressed the same problem and proposed a compound criterion combining ethical and inferential aspects. Minimizing the compound criterion, they derived a locally optimal target and implemented through a DBCD. But the target does not involve any covariate  and hence the corresponding procedure is not covariate adjusted.  However, all these allocations do not account for the treatment-covariate interaction**citeref{66} and hence the covariates affect the responses in the same way for every patient. This is undesirable as the subjects with worst prognosis should get the better treatment. For example consider a hypothetical clinical trial on reducing systolic blood pressure of patients with age  as the only covariate. In general,  the response to a treatment of blood pressure reduction varies with age and it is realistic to assume that the experimental treatment (i.e. treatment 1) is more efficient than the Control (i.e. treatment 2) for all age groups but the effectiveness for both the treatments is the highest for the young patients, moderate for the middle aged and the lowest for the old aged. Naturally, the need for the best treatment is most (least) for  old (young) aged patients and the presence of \textit{treatment-covariate interaction} in the model ensures  benefit according to the patient's covariate. In a recent work, Bandyopadhyay and Bhattacharya**citeref{67} thoroughly investigated the effect of \textit{treatment-covariate interaction} on the ethical properties under a response adaptive framework.
+
+\subsection{Bayesian Viewpoint}
+
+Although most of the works in the literature has been developed in frequentist's viewpoint, the basic principle of \textit{response-adaptive designs} is basically Bayesian where the accrued data up to any stage plays the
+role of a \textit{prior} at that stage and decides the allocation for the next
+entering subject. But, in the \textit{response-adaptive designs}, the allocation probabilities are set ad-hoc based on the observed data up to that stage, not explicitly following any Bayesian posterior calculation. However, Biswas and Angers**citeref{68} considered a continuous response two treatment set up in the presence of covariates. The set-up is similar to that of Bandyopadhyay and Biswas**citeref{60}, but the procedure is actually a CARA randomization procedure, again before the formal introduction of CARA design**citeref{14}.
+The allocation of any entering subject is carried out by computing
+the predictive density of a suitable link function that bridges the
+past history to the allocation. The usefulness of the proposed design is explored both theoretically and numerically (i.e. through a simulation study).
+
+\section{Efficiency: A new consideration in Adaptive Allocation}
+
+Response-adaptive procedures discussed so far  attempt to assign more subjects to the better performing treatment by using the available allocation and response history for the randomization of every incoming subject. But unbalanced  allocation  often leads to a loss in power for comparing treatment effectiveness. In recent years a great deal of attention has been paid to find a theoretical basis to evaluate adaptive procedures in terms of power or efficiency. The issue of efficiency in response adaptive randomization was addressed  by  many authors and under widely satisfied regularity conditions it is established that the efficiency is a decreasing function of the variability  of the observed allocation proportion for any given target allocation**citeref{69,70}. In addition a lower bound to the asymptotic variance of observed allocation proportion for targeting a specific allocation proportion is obtained**citeref{70}. A target allocation proportion attaining such a bound is referred to as the \textit{asymptotically best}**citeref{70} and the corresponding response adaptive design is termed  \textit{first-order efficient}**citeref{71} or \textit{efficient}**citeref{71} for that specified target. However, most of the available response-adaptive allocation designs are not \textit{efficient} except for the binary response drop-the-loser procedures**citeref{17,18}. Although an efficient design for the general types of responses can be obtained from a DBCD**citeref{36} but unfortunately, it results in a deterministic procedure, contradicting the basic requirement of `randomization' in a clinical trial. As a reasonable alternative to DBCD allocation, Hu and his collaborators**citeref{71} developed a new family of efficient randomized adaptive designs (ERADE) to target any desired allocation. Specifically with $0\leq \alpha <1$ as a tuning constant for degree of randomness, they suggest the following assignment scheme for the $(i+1)$th patient
+ \begin{eqnarray*}
+E(\delta_{1,i+1}\mid \mathcal{F}_{i})=
+\left\{\begin{array}{ll}
+\alpha \hat{\rho}_{i} & \mbox{if }~\frac{N_{1i}}{i}>\hat{\rho}_{i}\\
+\hat{\rho}_{i}& \mbox{if }~\frac{N_{1i}}{i}=\hat{\rho}_{i}\\
+1-\alpha (1-\hat{\rho}_{i}) & \mbox{if }~\frac{N_{1i}}{i}<\hat{\rho}_{i}\\
+\end{array}\right.
+\end{eqnarray*}
+where   $N_{ki}=\sum_{j=1}^{i}\delta_{kj}$ and $\hat{\rho}_{i}$  denote respectively the observed number of allocations to treatment $k$ and an  estimate of the target proportion $\rho$ based on the available response and allocation data up to and including the $i$th subject.  For $\alpha=0$, the procedure becomes deterministic whereas a more randomized procedure is ensured with higher values of $\alpha.$  It is interesting to note that the procedure reduces to Efron's famous \textit{biased coin design}**citeref{72}  when $\rho=\frac{1}{2}.$ ERADE is established to be efficient for any target allocation as long as the response distribution belongs to the exponential family. Limiting results are also supported by relevant numerical computations for a number of target allocations taking into account both discrete and continuous treatment outcomes.
+
+\section{Delayed Responses}
+
+Most of the designs, discussed so far are developed with the
+assumption of instantaneous patient responses. But, in clinical
+trials, not only for survival outcomes, one need to adapt based on the available data so far. Early works**citeref{28,30,73,74}  on response-adaptive
+procedures evaluated the effect of delay through a simulation study, but the theoretical results were explicitly obtained by Bai, Hu and
+Rosenberger**citeref{75} and Biswas**citeref{76}. For continuous responses
+Bandyopadhyay and Biswas**citeref{60} briefly mentioned the possibility
+of delayed responses and suggested to carry out the adaptation
+procedure with available data. Biswas and Coad**citeref{61} gave a full
+mathematical treatment to this problem assuming exponential rate of
+entrance of patients in the context of a general multi-treatment
+adaptive design. Assuming exponentially distributed delay, Zhang
+and Rosenberger**citeref{24} also explored the effects of possible delay.
+Through a simulation study, they noted that moderate delay
+has marginal effect on the large sample behaviour of the
+randomisation procedure. Hu and his collaborators**citeref{77} gave a
+full mathematical treatment to explore the effects of delayed
+responses. Assuming that the probability of a patient to respond
+before the arrival of $n$ additional patients is inversely
+proportional to $n^{c}$ for some $c>0$, they showed that the
+asymptotic results of the DBCD procedures still hold. Assuming the
+patient entry intervals to be independent and identically distributed exponential, Zhang and Rosenberger**citeref{49} established, as expected, that under very general conditions, the delayed response has no effect on the asymptotic properties of the randomization procedure.
+
+\section{A comparative study}
+
+\subsection{Simulation study}
+
+To compare the performances of various allocation rules, we conduct a simulation study with 10,000 repetitions. For simplicity, we ignore the presence of any covariate information and assume that the responses from treatment $k$ are normally distributed with mean $\mu_{k}$ and variance $\sigma^{2}_{k}$, $k=1,2$. First of all, to get a clear cut idea about the effective allocation proportion, that is proportion of allocation together with the variability, we provide a boxplot (see Figure 1) of the simulated proportion of allocation  to treatment 1 for fixed difference in treatment effectiveness and varying  response variability. For the plot, we take $n=90$ and generate responses for treatment 2 from a normal distribution with mean and variance both unity and those for treatment 1 are generated from a normal distribution with mean 1.50 but with varying $\sigma_{1}^{2}=\sigma^{2}=\frac{1}{2},1.0, 2.0$. For the purpose of comparison we consider the following allocation rules:
+\begin{itemize}
+\item Equal allocation Rule (Denoted by A);
+\item Ignoring the covariate, the  allocation procedure  of Bandyopadhyay and Biswas**citeref{60} (Denoted by B);
+\item Continuous drop-the-loser allocation**citeref{31} (Denoted by C);
+\item Ignoring the covariate, the  allocation procedure of Biswas and Mandal**citeref{44} (Denoted by D);
+\item The Ethical-cum-Optimal allocation**citeref{39} (Denoted by E);
+\end{itemize}
+together with  $c=1$ and sequentially estimated $T^{2}=\sigma_{1}^{2}+\sigma_{2}^{2}$.
+
+
+[figcap]Boxplot of the observed proportion of allocation to treatment 1 (denoted by $PA_1$).[/figcap(3)]
+
+\newline
+ \noindent Moreover to compare the statistical gain, we consider testing $H_{0}:\mu_{1}=\mu_{2}=1.0$ against $H_{1}:\mu_{1}=1.50, \mu_{2}=1.0$ and determine the sample size to attain 80\% power for different values of $\sigma^{2}$. The test is based on the estimated standardized treatment difference and a larger absolute value indicates rejection of the null hypothesis. The required sample sizes are reported in 
+
+
+   
+#[table-wrap]#
+#[label]##[/label]#
+#[caption]#Trial size to ensure 80\% power#[/caption]#
+#[alternatives]#
+#[graphic]##[/graphic]#
+#[table]#
+#[thead align=@#left@# valign=@#top@#]#
+#[tr]#
+#[th]#Allocation#[/th]#
+#[th]#$\sigma^{2}=\frac{1}{2}$#[/th]#
+#[th]#$\sigma^{2}=1$#[/th]#
+#[th]#$\sigma^{2}=2$#[/th]#
+#[/tr]#
+#[tr]#
+#[th]#Designs#[/th]#
+#[th]##[/th]#
+#[th]##[/th]#
+#[th]##[/th]#
+#[/tr]#
+#[/thead]#
+#[tbody align=@#left@# valign=@#top@#]#
+#[tr]#
+#[td]#A#[/td]#
+#[td]#96#[/td]#
+#[td]#121#[/td]#
+#[td]#182#[/td]#
+#[/tr]#
+#[tr]#
+#[td]#B#[/td]#
+#[td]#111#[/td]#
+#[td]#138#[/td]#
+#[td]#193#[/td]#
+#[/tr]#
+#[tr]#
+#[td]#C#[/td]#
+#[td]#102#[/td]#
+#[td]#134#[/td]#
+#[td]#194#[/td]#
+#[/tr]#
+#[tr]#
+#[td]#D#[/td]#
+#[td]#99#[/td]#
+#[td]#130#[/td]#
+#[td]#191#[/td]#
+#[/tr]#
+#[tr]#
+#[td]#E#[/td]#
+#[td]#126#[/td]#
+#[td]#148#[/td]#
+#[td]#203#[/td]#
+#[/tr]#
+#[/tbody]#
+#[/table]#
+#[/alternatives]#
+#[/table-wrap]#
+
+
+
+ \noindent \textbf{Remarks:} A close examination of the plot reveals that rules B and E assign the highest fraction to the better treatment (treatment 1 in this case) but with considerably larger variability irrespective of the choice of $\sigma$. Among the response-adaptive competitors, the lowest treatment variability is provided by allocation C though equal allocation provides the lowest variability among all the competitors. Moreover, from Table 1 we observe that equal allocation needs the lowest number observations to attain 80\% power whatever be the value of the response variability. Among the response-adaptive procedures, procedure D ensured the desired level of power with minimum recruitment. A lower trial size, in fact,  implies less allocation to the inferior treatment and hence is more ethical. Thus, allocation D seemed to be ethically satisfactory, of course, ensuring a specified statistical precision.
+
+\subsection{Redesigning a real clinical trials}
+
+Despite the attractive property of assigning larger number of subjects
+to the better treatment in course of the trial, only a few real response-adaptive trials , namely, the Fluoxetine trial**citeref{22}, the trial reported by Rout et al.**citeref{78} and  the PEMF trial**citeref{79,80},  are available in literature. But in all these trials , the response variable is binary/categorical and so far as our knowledge goes, no response-adaptive trial with continuous response variable have been reported. However, the response variable in the Fluoxetine trial though measured in a 53 point ordinal scale is considered continuous by several authors**citeref{58}. Now, for the purpose of illustration, we consider  the randomized, placebo-controlled clinical trial conducted by Dworkin et al.**citeref{23} with an objective to evaluate the efficacy and safety of \textit{Pregabalin} in the treatment of postherpetic neuralgia (PHN). There were $n =173$ patients of which 84 received the standard therapy placebo (Treatment 1) and 89 were randomized to \textit{Pregabalin} (Treatment 2). The primary efficacy measure was the mean of the last 7 daily pain ratings, as maintained by patients in a daily diary using the 11 point numerical pain rating scale ($0=$ no pain, $10=$ worst possible pain) and, therefore, a lower score (response in this case) indicates a favourable situation. After the 8 week duration of the trial, it was observed that \textit{Pregabalin}-treated patients experienced a higher decrease in pain score than patients treated with placebo. We assume normality for the response variable and use the final mean scores as the true values  and redesign the clinical trial with 10,000 repetitions of a response-adaptive trial recruiting $n=173$ patients following some response adaptive allocation procedure. Responses are generated from a normal distribution with mean $\mu_{1}=3.60$ and variance $\sigma_{1}^{2} = 2.25^{2}$  for \textit{Pregabalin} and with mean $\mu_{2}=5.29$ and variance $\sigma_{2}^{2} = 2.20^{2}$  for placebo. We consider the  allocation procedures A, B, C, D and E stated above, and update the allocation probabilities for every incoming subject. Here $T^{2}$ is taken as earlier, the sequentially estimated $\sigma_{1}^{2}+\sigma_{2}^{2}$ with fixed $c=(\mu_{1}+\mu_{2})/2$.  The behaviour of the number of allocations to \textit{Pregabalin} and its variability is captured in the boxplot given in Figure 2 where the figures for rule A  correspond to the  procedure actually adopted in the original trial. However, the optimal rule of Zhang and Rosenberger**citeref{24} is left out of consideration because this very procedure crashes whenever the estimated mean becomes negative. In fact, for the assumed normality, the probability of getting a negative response is at least 1\%. For further details, the interested reader is referred to the work of Biswas, Bhattacharya and Zhang**citeref{42} .
+\noindent\textbf{Remarks:} As expected, each of the response adaptive procedures resulted in more assignments to the better treatment as compared to the randomization actually followed in the trial. The assignment numbers for the procedures B and E are  higher than those of the procedures C and D  but the corresponding variabilities are lower for the procedures C and D. However, the expected number of allocations to \textit{Pregabalin} are always higher  for  each of  the response-adaptive procedures than the equal allocation procedure. Thus we conclude that had we used the  response-adaptive alternatives,  a considerably excess number of patients would have received the better treatment (\textit{Pregabalin}) as compared to the actual trial.
+
+\section{Discussion and Recommendation}
+
+In the current work we have reviewed various response-adaptive allocations when the treatment outcome is continuous. The presence of covariate information and  possibility of multiple treatments  are also considered. Other issues like optimality of the allocation and delay in responses are also addressed in this review. In addition, an investigation of the relative performance of few response-adaptive procedures within the framework of real clinical trials  is also provided. However, adaptive randomization has disadvantages that must be considered together with the potential benefits**citeref{81,82}. The main  concern is security because adaptive randomization requires continuous modifications of the allocation probabilities and hence there may be a leakage of information  outside the sphere of confidentiality and this may affect the accrual of the patients.  The possibility of information leakage can limit the credibility of a phase III trial. Again adaptive trials are based on getting outcome data into a central database while patients are being accrued and observed. But such an operation is not standard for clinical research organizations  and hence there is a possibility of error. In addition, there is a negative aspect specific to any  two-armed response adaptive randomization. In a two treatment( experimental and control) trial, if the experimental arm performs relatively poorly, then it
+will be little used. Naturally such an allocation is unlikely to
+be sponsored by pharmaceutical company because the company may end up funding a trial in which only a few number of the patients are actually assigned to their drug.  However, given the ethical as well as inferential ability of the response-adaptive allocation, we hope the current review  not only  increase the interest in such allocations but also help the clinical practitioners in selecting the appropriate design for expedite the application in real clinical trials.\\
